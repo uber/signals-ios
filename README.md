@@ -49,7 +49,7 @@ UBSignalObserver *observer = [networkRequest.onNetworkResult addObserver:self ca
 [observer cancel];
 ```
 
-You can also configure the observer to canel itself after it has observed a signal firing once:
+You can also configure the observer to cancel itself after it has observed a signal firing once:
 
 ```
 [networkRequest.onNetworkResult addObserver:self callback:^(typeof(self) self, NSData *data, NSError *error) {
