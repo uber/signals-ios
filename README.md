@@ -13,17 +13,18 @@ Signals solves all of the above problems and provides an inline, type-safe and f
 
 Make a class observable by declaring a Signals in its header and implementing it in its initializer:
 
-```
+```objective-c
 // Defines a new Signal type. This type is named "NetworkResult", and has two parameters 
-// of type NSData and NSError. Note that the postfix "Signal" is automatically added to the type name.
-// Also note that only objects are allowed in Signal signatures.
+// of type NSData and NSError. Note that the postfix "Signal" is automatically added to 
+// the type name. Also note that only objects are allowed in Signal signatures.
 CreateSignalType(NetworkResult, NSData *result, NSError *error)
 
 // In your header you define the signal
 @property (nonatomic, readonly) UBSignal<NetworkResultSignal> *onNetworkResult;
 
 // In the initializer the instance creates the signal
-_onNetworkResult = (UBSignal<NetworkResultSignal> *)[[UBSignal alloc] initWithProtocol:@protocol(NetworkResultSignal)];
+_onNetworkResult = (UBSignal<NetworkResultSignal> *)
+      [[UBSignal alloc] initWithProtocol:@protocol(NetworkResultSignal)];
 
 // Whenever the instance receives a network result (with NSData and NSError), it
 // fires off the signal.
@@ -32,8 +33,9 @@ _onNetworkResult.fire(myData, myError);
 
 Any class who has access to the NetworkResult instance, can now register itself as a listener and get notified whenever the network operation has loaded:
 
-```
-[networkRequest.onNetworkResult addObserver:self callback:^(typeof(self) self, NSData *data, NSError *error) {
+```objective-c
+[networkRequest.onNetworkResult addObserver:self 
+                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
     // Do something with the result. The self passed into the block is weakified by Signals
     // to guard against retain cycles.
 }];
@@ -42,8 +44,9 @@ Any class who has access to the NetworkResult instance, can now register itself 
 To cancel a single observer, call cancel on the returned UBSignalObserver:
 
 ```
-UBSignalObserver *observer = [networkRequest.onNetworkResult addObserver:self callback:^(typeof(self) self, NSData *data, NSError *error) {
-    ....
+UBSignalObserver *observer = [networkRequest.onNetworkResult addObserver:self 
+                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
+    ...
 }];
 ...
 [observer cancel];
@@ -52,15 +55,17 @@ UBSignalObserver *observer = [networkRequest.onNetworkResult addObserver:self ca
 You can also configure the observer to cancel itself after it has observed a signal firing once:
 
 ```
-[networkRequest.onNetworkResult addObserver:self callback:^(typeof(self) self, NSData *data, NSError *error) {
-    ....
+[networkRequest.onNetworkResult addObserver:self 
+                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
+    ...
 }].cancelsAfterNextFire = YES;
 ```
 
 The callback is by default called on the same NSOperationQueue than the signal fires on. To change this, simply change the operationQueue parameter of the returned UBSignalObserver.
 
 ```
-[networkRequest.onNetworkResult addObserver:self callback:^(typeof(self) self, NSData *data, NSError *error) {
+[networkRequest.onNetworkResult addObserver:self 
+                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
     ....
 }].operationQueue = NSOperationQueue.mainQueue;
 ```
