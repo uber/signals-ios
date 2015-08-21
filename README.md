@@ -35,7 +35,7 @@ Any class who has access to the NetworkResult instance, can now register itself 
 
 ```objective-c
 [networkRequest.onNetworkResult addObserver:self 
-                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
+            callback:^(typeof(self) self, NSData *data, NSError *error) {
     // Do something with the result. The self passed into the block is weakified by Signals
     // to guard against retain cycles.
 }];
@@ -45,7 +45,7 @@ To cancel a single observer, call cancel on the returned UBSignalObserver:
 
 ```objective-c
 UBSignalObserver *observer = [networkRequest.onNetworkResult addObserver:self 
-                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
+        callback:^(typeof(self) self, NSData *data, NSError *error) {
     ...
 }];
 ...
@@ -56,7 +56,7 @@ You can also configure the observer to cancel itself after it has observed a sig
 
 ```objective-c
 [networkRequest.onNetworkResult addObserver:self 
-                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
+            callback:^(typeof(self) self, NSData *data, NSError *error) {
     ...
 }].cancelsAfterNextFire = YES;
 ```
@@ -65,7 +65,7 @@ The callback is by default called on the same NSOperationQueue than the signal f
 
 ```objective-c
 [networkRequest.onNetworkResult addObserver:self 
-                                   callback:^(typeof(self) self, NSData *data, NSError *error) {
+            callback:^(typeof(self) self, NSData *data, NSError *error) {
     ....
 }].operationQueue = NSOperationQueue.mainQueue;
 ```
