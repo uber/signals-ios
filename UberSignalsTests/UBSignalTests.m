@@ -135,7 +135,7 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL fired;
+    __block BOOL fired = NO;
     
     [emitter.onComplexSignal addObserver:self callback:^(id self, NSNumber *number1, NSNumber *number2, NSNumber *number3, NSNumber *number4, NSNumber *number5) {
         
@@ -161,8 +161,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL fired;
-    __block id callbackSelf;
+    __block BOOL fired = NO;
+    __block id callbackSelf = nil;
     __block NSString *callbackStringData = @"test";
     __block NSString *callbackOtherStringData = @"test";
     
@@ -185,8 +185,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL firstSignalFired;
-    __block BOOL secondSignalFired;
+    __block BOOL firstSignalFired = NO;
+    __block BOOL secondSignalFired = NO;
     
     UBSignalObserver *firstSignalObserver = [emitter.onEmptySignal addObserver:self callback:^(typeof(self) self) {
         firstSignalFired = YES;
@@ -205,8 +205,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL firstSignalFired;
-    __block BOOL secondSignalFired;
+    __block BOOL firstSignalFired = NO;
+    __block BOOL secondSignalFired = NO;
     
     UBSignalObserver *firstSignalObserver = [emitter.onIntegerSignal addObserver:self callback:^(id self, NSNumber *integer) {
         firstSignalFired = YES;
@@ -225,8 +225,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL firstSignalFired;
-    __block BOOL secondSignalFired;
+    __block BOOL firstSignalFired = NO;
+    __block BOOL secondSignalFired = NO;
     
     UBSignalObserver *firstSignalObserver = [emitter.onStringSignal addObserver:self callback:^(typeof(self) self, NSString *stringData, NSString *otherStringData) {
         firstSignalFired = YES;
@@ -245,8 +245,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL firstSignalFired;
-    __block BOOL secondSignalFired;
+    __block BOOL firstSignalFired = NO;
+    __block BOOL secondSignalFired = NO;
     
     UBSignalObserver *firstSignalObserver = [emitter.onTripleSignal addObserver:self callback:^(id self, NSString *string1, NSString *string2, NSNumber *number1) {
         firstSignalFired = YES;
@@ -265,8 +265,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL firstSignalFired;
-    __block BOOL secondSignalFired;
+    __block BOOL firstSignalFired = NO;
+    __block BOOL secondSignalFired = NO;
     
     UBSignalObserver *firstSignalObserver = [emitter.onQuardrupleSignal addObserver:self callback:^(id self, NSString *string1, NSString *string2, NSNumber *number1, NSNumber *number2) {
         firstSignalFired = YES;
@@ -285,8 +285,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL firstSignalFired;
-    __block BOOL secondSignalFired;
+    __block BOOL firstSignalFired = NO;
+    __block BOOL secondSignalFired = NO;
     
     UBSignalObserver *firstSignalObserver = [emitter.onComplexSignal addObserver:self callback:^(id self, NSNumber *number1, NSNumber *number2, NSNumber *number3, NSNumber *number4, NSNumber *number5) {
         firstSignalFired = YES;
@@ -307,8 +307,8 @@
     NSObject *observer1 = [[NSObject alloc] init];
     NSObject *observer2 = [[NSObject alloc] init];
     
-    __block BOOL fired1;
-    __block BOOL fired2;
+    __block BOOL fired1 = NO;
+    __block BOOL fired2 = NO;
     
     [emitter.onStringSignal addObserver:observer1 callback:^(id observer, NSString *stringData, NSString *otherStringData) {
         fired1 = YES;
@@ -346,8 +346,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL fired1;
-    __block BOOL fired2;
+    __block BOOL fired1 = NO;
+    __block BOOL fired2 = NO;
     
     UBSignalObserver *signalObserver = [emitter.onStringSignal addObserver:self callback:^(typeof(self) self, NSString *stringData, NSString *otherStringData) {
         fired1 = YES;
@@ -368,7 +368,7 @@
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     NSObject *observer1 = [[NSObject alloc] init];
 
-    __block NSUInteger fireCount;
+    __block NSUInteger fireCount = 0;
     
     UBSignalObserver *observer = [emitter.onStringSignal addObserver:observer1 callback:^(id observer, NSString *stringData, NSString *otherStringData) {
         fireCount++;
@@ -390,7 +390,7 @@
     NSObject *observer1 = [[NSObject alloc] init];
     emitter.onStringSignal.fire(nil, nil);
     
-    __block NSUInteger fireCount;
+    __block NSUInteger fireCount = 0;
 
     UBSignalObserver *observer = [emitter.onStringSignal addObserver:observer1 callback:^(id observer, NSString *stringData, NSString *otherStringData) {
         fireCount++;
@@ -410,7 +410,7 @@
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     __block NSObject *observer = [[NSObject alloc] init];
     
-    __block BOOL fired;
+    __block BOOL fired = NO;
     
     [emitter.onStringSignal addObserver:observer callback:^(id weakifiedObject, NSString *stringData, NSString *otherStringData) {
         fired = YES;
@@ -439,8 +439,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL fired;
-    __block id callbackSelf;
+    __block BOOL fired = NO;
+    __block id callbackSelf = nil;
     __block NSString *callbackStringData;
     __block NSString *callbackOtherStringData;
     
@@ -519,7 +519,7 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block BOOL fired;
+    __block BOOL fired = NO;
     emitter.onEmptySignal.observerAdded = ^(UBSignalObserver *signalObserver) {
         fired = YES;
     };
@@ -535,8 +535,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block UBSignalObserver *observer;
-    __block BOOL fired;
+    __block UBSignalObserver *observer = nil;
+    __block BOOL fired = NO;
     emitter.onEmptySignal.observerRemoved = ^(UBSignalObserver *signalObserver) {
         XCTAssertEqual(signalObserver, observer, @"signalObserver should be the same object as was originally returned by addObserver:");
         fired = YES;
@@ -554,8 +554,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block UBSignalObserver *observer;
-    __block BOOL fired;
+    __block UBSignalObserver *observer = nil;
+    __block BOOL fired = NO;
     emitter.onEmptySignal.observerRemoved = ^(UBSignalObserver *signalObserver) {
         XCTAssertEqual(signalObserver, observer, @"signalObserver should be the same object as was originally returned by addObserver:");
         fired = YES;
@@ -573,8 +573,8 @@
 {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
-    __block UBSignalObserver *observer;
-    __block BOOL fired;
+    __block UBSignalObserver *observer = nil;
+    __block BOOL fired = NO;
     emitter.onEmptySignal.observerRemoved = ^(UBSignalObserver *signalObserver) {
         XCTAssertEqual(signalObserver, observer, @"signalObserver should be the same object as was originally returned by addObserver:");
         fired = YES;
@@ -636,8 +636,8 @@
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
     __block NSUInteger fireCount = 0;
-    __block UBSignalObserver *observer;
-    __block UBSignalObserver *observer2;
+    __block UBSignalObserver *observer = nil;
+    __block UBSignalObserver *observer2 = nil;
     
     observer = [emitter.onEmptySignal addObserver:self callback:^(typeof(self) self) {
         fireCount++;
