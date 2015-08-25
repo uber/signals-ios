@@ -34,6 +34,8 @@
 
 @implementation UBSignalObserver
 
+#pragma mark - Initializers
+
 - (instancetype)initWithSignal:(UBSignal *)signal observer:(id)observer callback:(UBSignalCallback)callback
 {
     self = [super self];
@@ -45,12 +47,23 @@
     return self;
 }
 
+
+#pragma mark - NSObject
+
+- (NSString *)debugDescription
+{
+    return [NSString stringWithFormat:@"<%@: %p, observer: %@", NSStringFromClass([self class]), self, self.observer];
+}
+
+
+#pragma mark - Public Interface
+
 - (BOOL)firePreviousData
 {
     return [self.signal firePastDataForSignalObserver:self];
 }
 
--(void)cancel
+- (void)cancel
 {
     [self.signal removeSignalObserver:self];
 }
