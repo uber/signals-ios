@@ -3,17 +3,47 @@
 [![Build Status](https://travis-ci.org/uber/signals-ios.svg?branch=master)](https://travis-ci.org/uber/signals-ios)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/UberSignals.svg)](https://cocoapods.org/pods/UberSignals)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![License](https://img.shields.io/cocoapods/l/Signals.svg?style=flat&color=gray)
 ![Platform](https://img.shields.io/cocoapods/p/UberSignals.svg?style=flat)
 
+Signals is an eventing framework that enables you to implement the Observable pattern without using error prone and clumsy NSNotifications or delegates.
 
-Signals is an eventing framework that enables you to implement the Observable pattern without using NSNotifications.
 
-- Notifications are inherently error prone. If a listener doesn’t de-register itself from a notification when it’s deallocated, firing the notification will crash the application.
-- You register a selector to be invoked when a notification fires. This makes code less readable by separating where you register for a notification and where your code that gets executed due to a notification firing actually lives.
-- Notification data is not type-safe making it error-prone and hard to refactor.
-- Notifications has a lot of boilerplate code to register unique notification names.
+## Features
 
-Signals solves all of the above problems and provides an inline, type-safe and fire-and-forget way to observe events being fired by objects.
+- [x] Type-safety
+- [x] Attach-and-forget observation
+- [x] Specify operation queue to observe events on
+- [x] Comprehensive Unit Test Coverage
+
+## Installation
+#### Cocoapods
+
+To integrate UberSignals into your project add the following to your `Podfile`:
+
+```ruby
+pod 'UberSignals', '~> 1.0'
+```
+
+#### Carthage
+
+To integrate UberSignals into your project using Carthage add the following to your `Cartfile`:
+
+```ruby
+github "uber/signals-ios" ~> 1.0
+```
+
+## Introduction
+
+NSNotifications are inherently error prone. If a listener doesn’t de-register itself from a notification when it’s deallocated, firing the notification will crash the application. If you refactor the data you send with a notification, the compiler won't warn you but your app might crash at runtime.
+
+NSNotifications are also unnecessarily broad. Anyone can listen in on them which couples separate components in your application implicitly together.
+
+With NSNotifications you register a selector to be invoked when a notification fires. This makes code less readable by separating where you register for notifications and where you handle notifications.
+
+NSNotifications also require a lot of boilerplate code to register unique names to use as notification identifiers.
+
+UberSignals solves all of the above problems and provides an inline, type-safe and attach-and-forget way to observe events being fired by objects. It is also a great replacement for delegates when there is no need to return data from the delegates.
 
 # Usage
 
