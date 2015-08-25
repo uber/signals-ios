@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		72F45D921B8C0F910025F83C /* UberSignals.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = UberSignals.podspec; sourceTree = "<group>"; };
 		72FED2061B2C97C400DCAB7E /* UberSignals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UberSignals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72FED20A1B2C97C400DCAB7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72FED20B1B2C97C400DCAB7E /* UberSignals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UberSignals.h; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		72FED1FC1B2C97C400DCAB7E = {
 			isa = PBXGroup;
 			children = (
+				72F45D921B8C0F910025F83C /* UberSignals.podspec */,
 				72FED2081B2C97C400DCAB7E /* UberSignals */,
 				72FED2151B2C97C400DCAB7E /* UberSignalsTests */,
 				72FED2071B2C97C400DCAB7E /* Products */,
