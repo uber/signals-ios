@@ -19,7 +19,7 @@ Signals is an eventing framework that enables you to implement the Observable pa
 ## Installation
 #### Cocoapods
 
-To integrate UberSignals into your project add the following to your `Podfile`:
+To integrate Signals into your project add the following to your `Podfile`:
 
 ```ruby
 pod 'UberSignals', '~> 1.0'
@@ -27,7 +27,7 @@ pod 'UberSignals', '~> 1.0'
 
 #### Carthage
 
-To integrate UberSignals into your project using Carthage add the following to your `Cartfile`:
+To integrate Signals into your project using Carthage add the following to your `Cartfile`:
 
 ```ruby
 github "uber/signals-ios" ~> 1.0
@@ -43,7 +43,7 @@ With NSNotifications you register a selector to be invoked when a notification f
 
 NSNotifications also require a lot of boilerplate code to register unique names to use as notification identifiers.
 
-UberSignals solves all of the above problems and provides an inline, type-safe and attach-and-forget way to observe events being fired by objects. It is also a great replacement for delegates when there is no need to return data from the delegates.
+Signals solves all of the above problems and provides an inline, type-safe and attach-and-forget way to observe events being fired by objects. It is also a great replacement for delegates when there is no need to return data from the delegates.
 
 # Usage
 
@@ -110,7 +110,7 @@ The callback is by default called on the same NSOperationQueue than the signal f
 
 Each signal type created with the CreateSignalType macro creates a new protocol so that the compiler can enforce type safety. This means that the name you choose for your signal types need to be unique to your project. 
 
-Frequently, a signal will fire no parameters or one parameter of the basic ObjC types. UberSignals therefore predefines a set of signal types that you can use:
+Frequently, a signal will fire no parameters or one parameter of the basic ObjC types. Signals therefore predefines a set of signal types that you can use:
 
 ```objective-c
 EmptySignal, fires no parameters
