@@ -115,7 +115,7 @@ FloatSignal, fires a NSNumber
 DoubleSignal, fires a NSNumber
 BooleanSignal, fires a NSNumber
 StringSignal, fires a NSString
-ArraySignal, fies a NSArray
+ArraySignal, fires a NSArray
 MutableArraySignal, fires a NSMutableArray
 DictionarySignal, fires a NSDictionary
 MutableDictionarySignal, fires a NSMutableDictionary
