@@ -46,6 +46,8 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
 
 @implementation UBSignal
 
+#pragma mark - Initializers
+
 - (instancetype)initWithProtocol:(Protocol *)protocol
 {
     self = [super init];
@@ -120,6 +122,14 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
 - (instancetype)init
 {
     return [self initWithProtocol:nil];
+}
+
+
+#pragma mark - NSObject
+
+- (NSString *)debugDescription
+{
+    return [NSString stringWithFormat:@"<%@: %p, signalObservers: %@", NSStringFromClass([self class]), self, [self.signalObservers debugDescription]];
 }
 
 
