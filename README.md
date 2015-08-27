@@ -106,10 +106,14 @@ The callback is by default called on the same NSOperationQueue than the signal f
 }].operationQueue = NSOperationQueue.mainQueue;
 ```
 
-### Default Signals
-UberEvents pre-defines the following Signal types:
+### Signal naming
+
+Each signal type created with the CreateSignalType macro creates a new protocol so that the compiler can enforce type safety. This means that the name you choose for your signal types need to be unique to your project. 
+
+Frequently, a signal will fire no parameters or one parameter of the basic ObjC types. UberSignals therefore predefines a set of signal types that you can use:
 
 ```objective-c
+EmptySignal, fires no parameters
 IntegerSignal, fires a NSNumber
 FloatSignal, fires a NSNumber
 DoubleSignal, fires a NSNumber
