@@ -124,3 +124,13 @@ MutableArraySignal, fires a NSMutableArray
 DictionarySignal, fires a NSDictionary
 MutableDictionarySignal, fires a NSMutableDictionary
 ```
+
+## Communication
+
+- If you **find a bug**, open an issue or submit a fix via a pull request.
+- If you **have a feature request**, open an issue or submit an implementation via a pull request
+- If you **want to contribute**, submit a pull request.
+
+## License
+
+Signals is released under a MIT license. See the LICENSE file for more information.
