@@ -72,8 +72,8 @@ Any class who has access to the NetworkResult instance, can now register itself 
 ```objective-c
 [networkRequest.onNetworkResult addObserver:self 
             callback:^(typeof(self) self, NSData *data, NSError *error) {
-    // Do something with the result. The self passed into the block is weakified by Signals
-    // to guard against retain cycles.
+    // Do something with the result. The self passed into the block is 
+    // weakified by Signals to guard against retain cycles.
 }];
 ```
 
