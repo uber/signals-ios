@@ -30,7 +30,7 @@
 {
     self = [super init];
     if (self) {
-        _onEmptySignal = (UBSignal<EmptySignal> *)[[UBSignal alloc] init];
+        _onEmptySignal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
         _onIntegerSignal = (UBSignal<IntegerSignal> *)[[UBSignal alloc] initWithProtocol:@protocol(IntegerSignal)];
         _onStringSignal = (UBSignal<TupleSignal> *)[[UBSignal alloc] initWithProtocol:@protocol(TupleSignal)];
         _onTripleSignal = (UBSignal<TripleSignal> *)[[UBSignal alloc] initWithProtocol:@protocol(TripleSignal)];

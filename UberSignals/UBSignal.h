@@ -120,8 +120,10 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
  */
 @property (nonatomic, strong) UBSignalObserverChange observerRemoved;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 /**
- Initializes a Signal with a given protocol.
+ Initializes a Signal with a given protocol. An empty signal should call this initializer with the EmptySignal protocol.
  */
 - (instancetype)initWithProtocol:(Protocol *)protocol NS_DESIGNATED_INITIALIZER;
 

@@ -595,7 +595,7 @@
 
 - (void)testMaxObservers
 {
-    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] init];
+    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
     signal.maxObservers = 2;
     
     [signal addObserver:self callback:^(id self) {}];
@@ -606,7 +606,7 @@
 
 - (void)testSettingMaxObserversBelowObservers
 {
-    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] init];
+    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
     [signal addObserver:self callback:^(id self) {}];
     [signal addObserver:self callback:^(id self) {}];
     
@@ -616,7 +616,7 @@
 
 - (void)testAllArgumentCounts
 {
-    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] init];
+    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
     signal.maxObservers = 2;
     
     [signal addObserver:self callback:^(id self) {}];
@@ -627,7 +627,7 @@
 
 - (void)testObservingWithoutCallback
 {
-    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] init];
+    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
     XCTAssertThrows([signal addObserver:nil callback:^(id self) {}], @"Should have complained about nil observer");
     XCTAssertThrows([signal addObserver:self callback:nil], @"Should have complained about nil callback");
 }
