@@ -671,4 +671,50 @@
     XCTAssertEqual(fireCount, 3u, @"Signal fired");
 }
 
+- (void)testFiringShouldNotRetainObserver {
+    UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
+    
+    __block NSUInteger fireCount = 0;
+    
+    
+    NSObject *observer = [[NSObject alloc] init];
+    __weak NSObject *weakObserver = observer;
+    
+    @autoreleasepool {
+        [emitter.onEmptySignal addObserver:observer callback:^(typeof(self) self) {
+            fireCount++;
+        }];
+        emitter.onEmptySignal.fire();
+        emitter.onEmptySignal.fire();
+    }
+    
+    observer = nil;
+    
+    XCTAssertEqual(fireCount, 2u, @"Signal fired");
+    XCTAssertNil(weakObserver, @"Should have deallocated observer");
+}
+
+- (void)testRemovingObserverWhileFiringShouldNotRetainObserver {
+    UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
+    
+    __block NSUInteger fireCount = 0;
+    
+    NSObject *observer = [[NSObject alloc] init];
+    __weak NSObject *weakObserver = observer;
+    
+    @autoreleasepool {
+        [emitter.onEmptySignal addObserver:observer callback:^(typeof(self) self) {
+            fireCount++;
+            [emitter.onEmptySignal removeObserver:observer];
+        }];
+        
+        emitter.onEmptySignal.fire();
+        emitter.onEmptySignal.fire();
+        
+        observer = nil;
+    }
+    XCTAssertEqual(fireCount, 1u, @"Signal fired");
+    XCTAssertNil(weakObserver, @"Should have deallocated observer");
+}
+
 @end
