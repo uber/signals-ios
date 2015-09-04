@@ -59,7 +59,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
         if (protocol_conformsToProtocol(protocol, @protocol(EmptySignal))) {
             _fire = (UBSignalFire) ^void() {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                [strongSelf _fireData:nil forSignalObservers:weakSelf.signalObservers];
+                [strongSelf _fireData:nil forSignalObservers:strongSelf.signalObservers];
             };
             _fireForSignalObserver = (UBSignalFire) ^void(UBSignalObserver *signalObserver) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -68,7 +68,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
         } else if (protocol_conformsToProtocol(protocol, @protocol(UBSignalArgumentCount1))) {
             _fire = ^void(id arg1) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                [strongSelf _fireNewData:@[WrapNil(arg1)] forSignalObservers:weakSelf.signalObservers];
+                [strongSelf _fireNewData:@[WrapNil(arg1)] forSignalObservers:strongSelf.signalObservers];
             };
             _fireForSignalObserver = ^void(UBSignalObserver *signalObserver, id arg1) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -77,7 +77,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
         } else if (protocol_conformsToProtocol(protocol, @protocol(UBSignalArgumentCount2))) {
             _fire = ^void(id arg1, id arg2) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2)] forSignalObservers:weakSelf.signalObservers];
+                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2)] forSignalObservers:strongSelf.signalObservers];
             };
             _fireForSignalObserver = ^void(UBSignalObserver *signalObserver, id arg1, id arg2) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -86,7 +86,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
         } else if (protocol_conformsToProtocol(protocol, @protocol(UBSignalArgumentCount3))) {
             _fire = ^void(id arg1, id arg2, id arg3) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2), WrapNil(arg3)] forSignalObservers:weakSelf.signalObservers];
+                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2), WrapNil(arg3)] forSignalObservers:strongSelf.signalObservers];
             };
             _fireForSignalObserver = ^void(UBSignalObserver *signalObserver, id arg1, id arg2, id arg3) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -95,7 +95,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
         } else if (protocol_conformsToProtocol(protocol, @protocol(UBSignalArgumentCount4))) {
             _fire = ^void(id arg1, id arg2, id arg3, id arg4) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2), WrapNil(arg3), WrapNil(arg4)] forSignalObservers:weakSelf.signalObservers];
+                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2), WrapNil(arg3), WrapNil(arg4)] forSignalObservers:strongSelf.signalObservers];
             };
             _fireForSignalObserver = ^void(UBSignalObserver *signalObserver, id arg1, id arg2, id arg3, id arg4) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -104,7 +104,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
         } else if (protocol_conformsToProtocol(protocol, @protocol(UBSignalArgumentCount5))) {
             _fire = ^void(id arg1, id arg2, id arg3, id arg4, id arg5) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2), WrapNil(arg3), WrapNil(arg4), WrapNil(arg5)] forSignalObservers:weakSelf.signalObservers];
+                [strongSelf _fireNewData:@[WrapNil(arg1), WrapNil(arg2), WrapNil(arg3), WrapNil(arg4), WrapNil(arg5)] forSignalObservers:strongSelf.signalObservers];
             };
             _fireForSignalObserver = ^void(UBSignalObserver *signalObserver, id arg1, id arg2, id arg3, id arg4, id arg5) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
