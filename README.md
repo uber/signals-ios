@@ -22,7 +22,7 @@ Signals is an eventing framework that enables you to implement the Observable pa
 To integrate Signals into your project add the following to your `Podfile`:
 
 ```ruby
-pod 'UberSignals', '~> 1.0'
+pod 'UberSignals', '~> 2.0'
 ```
 
 #### Carthage
@@ -30,7 +30,7 @@ pod 'UberSignals', '~> 1.0'
 To integrate Signals into your project using Carthage add the following to your `Cartfile`:
 
 ```ruby
-github "uber/signals-ios" ~> 1.0
+github "uber/signals-ios" ~> 2.0
 ```
 
 ## Introduction
