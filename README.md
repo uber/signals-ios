@@ -50,21 +50,52 @@ Signals solves all of the above problems and provides an inline, type-safe and a
 Make a class observable by declaring a Signals in its header and implementing it in its initializer:
 
 ```objective-c
+
 // Defines a new Signal type. This type is named "NetworkResult", and has two parameters 
 // of type NSData and NSError. Note that the postfix "Signal" is automatically added to 
 // the type name. Also note that only objects are allowed in Signal signatures.
 CreateSignalType(NetworkResult, NSData *result, NSError *error)
 
-// In your header you define the signal
+@interface UBNetworkRequest
+
+// We define two signals for our NetworkRequest class.
+// - onNetworkResult will fire when a network result has been retreived.
+// - onNetworkProgress will fire whenever download progresses.
+
+// This uses the new signal type - NetworkResultSignal - that we've defined.
 @property (nonatomic, readonly) UBSignal<NetworkResultSignal> *onNetworkResult;
 
-// In the initializer the instance creates the signal
-_onNetworkResult = (UBSignal<NetworkResultSignal> *)
-      [[UBSignal alloc] initWithProtocol:@protocol(NetworkResultSignal)];
+// This makes use of a pre-defined signal type, FloatSignal.
+@property (nonatomic, readonly) UBSignal<FloatSignal> *onNetworkProgress;
 
-// Whenever the instance receives a network result (with NSData and NSError), it
-// fires off the signal.
-_onNetworkResult.fire(myData, myError);
+@end
+
+@implementation UBNetworkRequest
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    // In the initializer the instance creates our signal
+    _onNetworkResult = (UBSignal<NetworkResultSignal> *)
+         [[UBSignal alloc] initWithProtocol:@protocol(NetworkResultSignal)];
+    _onProgress = (UBSignal<FloatSignal> *)
+         [[UBSignal alloc] initWithProtocol:@protocol(FloatSignal)];
+   }
+   return self;
+}
+
+- (void)receivedNetworkResult(NSData *data, NSError *error) 
+{
+  // Signal all listeners we're done loading
+  _onNetworkProgress.fire(@(1.0))
+  
+  // Signal all listeners that we have data or an error
+  _onNetworkResult.fire(myData, myError);
+}
+
+...
+
+@end
 ```
 
 Any class who has access to the NetworkResult instance, can now register itself as a listener and get notified whenever the network operation has loaded:
@@ -88,7 +119,9 @@ UBSignalObserver *observer = [networkRequest.onNetworkResult addObserver:self
 [observer cancel];
 ```
 
-You can also configure the observer to cancel itself after it has observed a signal firing once:
+### Advanced usage
+
+You can configure the observer to cancel itself after it has observed a signal firing once:
 
 ```objective-c
 [networkRequest.onNetworkResult addObserver:self 
@@ -97,7 +130,7 @@ You can also configure the observer to cancel itself after it has observed a sig
 }].cancelsAfterNextFire = YES;
 ```
 
-The callback is by default called on the same NSOperationQueue than the signal fires on. To change this, simply change the operationQueue parameter of the returned UBSignalObserver.
+The callback is by default called on the same NSOperationQueue than the signal fires on. To have it fire on a different queue, simply change the operationQueue parameter of the returned UBSignalObserver.
 
 ```objective-c
 [networkRequest.onNetworkResult addObserver:self 
@@ -106,7 +139,31 @@ The callback is by default called on the same NSOperationQueue than the signal f
 }].operationQueue = NSOperationQueue.mainQueue;
 ```
 
-### Signal naming
+Signals remember with what data they were last fired with and you can force an observer to fire
+
+```objective-c
+[networkRequest.onNetworkResult addObserver:self 
+            callback:^(typeof(self) self, NSData *data, NSError *error) {
+    ....
+}];
+```
+
+
+## Max observers
+
+Signals have a default maximum observer count of 100 and signals will NSAssert that you don't add more observers to them. This is to make you aware of situations where you are unknowingly oversubscribing to a signal (e.g. beause of memory leaks or re-registering an observer). 
+
+If you have a legitimate case of increasing this limit, you can set the `maxObservers` property of a signal.
+
+```objective-c
+_onNetworkResult = (UBSignal<NetworkResultSignal> *)
+      [[UBSignal alloc] initWithProtocol:@protocol(NetworkResultSignal)];
+      
+_onNetworkResult.maxObservers = 500;
+```
+
+
+## Signal naming
 
 Each signal type created with the CreateSignalType macro creates a new protocol so that the compiler can enforce type safety. This means that the name you choose for your signal types need to be unique to your project. 
 
