@@ -53,7 +53,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
     self = [super init];
     if (self) {
         _signalObservers = [NSMutableArray array];
-        _maxObservers = 20;
+        _maxObservers = 100;
         
         __weak typeof(self) weakSelf = self;
         if (protocol_conformsToProtocol(protocol, @protocol(EmptySignal))) {
