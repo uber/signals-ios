@@ -54,7 +54,7 @@
 /**
  Returns a block that fires the signal when invoked.
  */
-- (void (^)())fire;
+- (void (^)(void))fire;
 
 /**
  Returns a block that fires the signal for a specific observer when invoked.
