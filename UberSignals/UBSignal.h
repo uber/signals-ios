@@ -120,6 +120,11 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
  */
 @property (nonatomic, strong) UBSignalObserverChange observerRemoved;
 
+/**
+ Helper constructor, Initializes an empty signal with the EmptySignal protocol.
+ */
++ (UBSignal<EmptySignal> *)emptySignal;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 /**

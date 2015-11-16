@@ -717,4 +717,10 @@
     XCTAssertNil(weakObserver, @"Should have deallocated observer");
 }
 
+- (void)testUBSignalHelper
+{
+    UBSignal<EmptySignal> *emptySignalWithHelper = [UBSignal emptySignal];
+    XCTAssertEqualObjects([emptySignalWithHelper class], [UBSignal class]);
+}
+
 @end
