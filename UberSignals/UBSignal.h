@@ -37,8 +37,6 @@
 #define CreateSignalType(name, signature...)\
     CreateSignalType_(PP_NARG(signature),name,signature)
 
-#define InitializeSignalProtocol(protocol)\
-   (UBSignal<protocol> *)[[UBSignal alloc] initWithProtocol:@protocol(protocol)];
 /**
  A special type of signal that doesn't have any parameters.
  */
