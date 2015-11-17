@@ -720,7 +720,7 @@
 - (void)testUBSignalHelper
 {
     UBSignal<EmptySignal> *emptySignalWithHelper = [UBSignal emptySignal];
-    XCTAssertEqualObjects([emptySignalWithHelper class], [UBSignal class]);
+    XCTAssertEqualObjects([emptySignalWithHelper class], [UBSignal class], @"Object created with helper factory method should be a UBSignal");
 }
 
 @end

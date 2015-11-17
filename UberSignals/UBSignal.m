@@ -48,7 +48,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
 
 + (UBSignal<EmptySignal> *)emptySignal
 {
-    return (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
+    return InitializeSignalProtocol(EmptySignal);
 }
 
 #pragma mark - Initializers

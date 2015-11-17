@@ -37,6 +37,8 @@
 #define CreateSignalType(name, signature...)\
     CreateSignalType_(PP_NARG(signature),name,signature)
 
+#define InitializeSignalProtocol(protocol)\
+   (UBSignal<protocol> *)[[UBSignal alloc] initWithProtocol:@protocol(protocol)];
 /**
  A special type of signal that doesn't have any parameters.
  */
@@ -121,7 +123,7 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
 @property (nonatomic, strong) UBSignalObserverChange observerRemoved;
 
 /**
- Helper constructor, Initializes an empty signal with the EmptySignal protocol.
+ Helper factory method, constructs a Signal instance with the EmptySignal protocol.
  */
 + (UBSignal<EmptySignal> *)emptySignal;
 
