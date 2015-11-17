@@ -120,6 +120,11 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
  */
 @property (nonatomic, strong) UBSignalObserverChange observerRemoved;
 
+/**
+ Helper factory method, constructs a Signal instance with the EmptySignal protocol.
+ */
++ (UBSignal<EmptySignal> *)emptySignal;
+
 - (instancetype)init NS_UNAVAILABLE;
 
 /**
