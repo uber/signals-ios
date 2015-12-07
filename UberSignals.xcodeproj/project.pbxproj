@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EBEBDB71C162E6600E8CA02 /* UBSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2231B2C97D800DCAB7E /* UBSignal.h */; };
+		5EBEBDB81C162E6600E8CA02 /* UBSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2241B2C97D800DCAB7E /* UBSignal.m */; };
+		5EBEBDB91C162E6600E8CA02 /* UBSignal+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2251B2C97D800DCAB7E /* UBSignal+Internal.h */; };
+		5EBEBDBA1C162E6600E8CA02 /* UBSignal+Preprocessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2261B2C97D800DCAB7E /* UBSignal+Preprocessor.h */; };
+		5EBEBDBB1C162E6600E8CA02 /* UBSignalObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2271B2C97D800DCAB7E /* UBSignalObserver.h */; };
+		5EBEBDBC1C162E6600E8CA02 /* UBSignalObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2281B2C97D800DCAB7E /* UBSignalObserver.m */; };
+		5EBEBDBD1C162E6600E8CA02 /* UBSignalObserver+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2291B2C97D800DCAB7E /* UBSignalObserver+Internal.h */; };
+		5EBEBDBE1C162E6600E8CA02 /* UberSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED20B1B2C97C400DCAB7E /* UberSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72FED20C1B2C97C400DCAB7E /* UberSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED20B1B2C97C400DCAB7E /* UberSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72FED2121B2C97C400DCAB7E /* UberSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FED2061B2C97C400DCAB7E /* UberSignals.framework */; };
 		72FED22B1B2C97D800DCAB7E /* UBSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2231B2C97D800DCAB7E /* UBSignal.h */; };
@@ -31,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5EBEBDAF1C162DE000E8CA02 /* UberSignals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UberSignals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F45D921B8C0F910025F83C /* UberSignals.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = UberSignals.podspec; sourceTree = "<group>"; };
 		72FED2061B2C97C400DCAB7E /* UberSignals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UberSignals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72FED20A1B2C97C400DCAB7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,6 +59,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5EBEBDAB1C162DE000E8CA02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72FED2021B2C97C400DCAB7E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,6 +99,7 @@
 			children = (
 				72FED2061B2C97C400DCAB7E /* UberSignals.framework */,
 				72FED2111B2C97C400DCAB7E /* UberSignalsTests.xctest */,
+				5EBEBDAF1C162DE000E8CA02 /* UberSignals.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +158,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5EBEBDAC1C162DE000E8CA02 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EBEBDBE1C162E6600E8CA02 /* UberSignals.h in Headers */,
+				5EBEBDBD1C162E6600E8CA02 /* UBSignalObserver+Internal.h in Headers */,
+				5EBEBDBA1C162E6600E8CA02 /* UBSignal+Preprocessor.h in Headers */,
+				5EBEBDBB1C162E6600E8CA02 /* UBSignalObserver.h in Headers */,
+				5EBEBDB91C162E6600E8CA02 /* UBSignal+Internal.h in Headers */,
+				5EBEBDB71C162E6600E8CA02 /* UBSignal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72FED2031B2C97C400DCAB7E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -157,9 +187,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		72FED2051B2C97C400DCAB7E /* UberSignals */ = {
+		5EBEBDAE1C162DE000E8CA02 /* UberSignals OSX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 72FED21C1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignals" */;
+			buildConfigurationList = 5EBEBDB61C162DE100E8CA02 /* Build configuration list for PBXNativeTarget "UberSignals OSX" */;
+			buildPhases = (
+				5EBEBDAA1C162DE000E8CA02 /* Sources */,
+				5EBEBDAB1C162DE000E8CA02 /* Frameworks */,
+				5EBEBDAC1C162DE000E8CA02 /* Headers */,
+				5EBEBDAD1C162DE000E8CA02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UberSignals OSX";
+			productName = "UberSignals OSX";
+			productReference = 5EBEBDAF1C162DE000E8CA02 /* UberSignals.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		72FED2051B2C97C400DCAB7E /* UberSignals iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72FED21C1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignals iOS" */;
 			buildPhases = (
 				72FED2011B2C97C400DCAB7E /* Sources */,
 				72FED2021B2C97C400DCAB7E /* Frameworks */,
@@ -170,14 +218,14 @@
 			);
 			dependencies = (
 			);
-			name = UberSignals;
+			name = "UberSignals iOS";
 			productName = UberSignals;
 			productReference = 72FED2061B2C97C400DCAB7E /* UberSignals.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		72FED2101B2C97C400DCAB7E /* UberSignalsTests */ = {
+		72FED2101B2C97C400DCAB7E /* UberSignals iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 72FED21F1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignalsTests" */;
+			buildConfigurationList = 72FED21F1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignals iOS Tests" */;
 			buildPhases = (
 				72FED20D1B2C97C400DCAB7E /* Sources */,
 				72FED20E1B2C97C400DCAB7E /* Frameworks */,
@@ -188,7 +236,7 @@
 			dependencies = (
 				72FED2141B2C97C400DCAB7E /* PBXTargetDependency */,
 			);
-			name = UberSignalsTests;
+			name = "UberSignals iOS Tests";
 			productName = UberSignalsTests;
 			productReference = 72FED2111B2C97C400DCAB7E /* UberSignalsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -202,6 +250,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Uber Technologies Inc.";
 				TargetAttributes = {
+					5EBEBDAE1C162DE000E8CA02 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
 					72FED2051B2C97C400DCAB7E = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
@@ -222,13 +273,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				72FED2051B2C97C400DCAB7E /* UberSignals */,
-				72FED2101B2C97C400DCAB7E /* UberSignalsTests */,
+				72FED2051B2C97C400DCAB7E /* UberSignals iOS */,
+				72FED2101B2C97C400DCAB7E /* UberSignals iOS Tests */,
+				5EBEBDAE1C162DE000E8CA02 /* UberSignals OSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5EBEBDAD1C162DE000E8CA02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72FED2041B2C97C400DCAB7E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +305,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5EBEBDAA1C162DE000E8CA02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EBEBDBC1C162E6600E8CA02 /* UBSignalObserver.m in Sources */,
+				5EBEBDB81C162E6600E8CA02 /* UBSignal.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72FED2011B2C97C400DCAB7E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,12 +337,55 @@
 /* Begin PBXTargetDependency section */
 		72FED2141B2C97C400DCAB7E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 72FED2051B2C97C400DCAB7E /* UberSignals */;
+			target = 72FED2051B2C97C400DCAB7E /* UberSignals iOS */;
 			targetProxy = 72FED2131B2C97C400DCAB7E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5EBEBDB41C162DE100E8CA02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = UberSignals/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uber.UberSignals.UberSignals-OSX";
+				PRODUCT_NAME = UberSignals;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5EBEBDB51C162DE100E8CA02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = UberSignals/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.uber.UberSignals.UberSignals-OSX";
+				PRODUCT_NAME = UberSignals;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		72FED21A1B2C97C400DCAB7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,7 +487,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uber.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UberSignals;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -393,7 +504,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.uber.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UberSignals;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -408,7 +519,7 @@
 				INFOPLIST_FILE = UberSignalsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ubercab.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UberSignalsTests;
 			};
 			name = Debug;
 		};
@@ -418,13 +529,21 @@
 				INFOPLIST_FILE = UberSignalsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ubercab.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = UberSignalsTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5EBEBDB61C162DE100E8CA02 /* Build configuration list for PBXNativeTarget "UberSignals OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EBEBDB41C162DE100E8CA02 /* Debug */,
+				5EBEBDB51C162DE100E8CA02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		72FED2001B2C97C400DCAB7E /* Build configuration list for PBXProject "UberSignals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -434,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		72FED21C1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignals" */ = {
+		72FED21C1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignals iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				72FED21D1B2C97C400DCAB7E /* Debug */,
@@ -443,7 +562,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		72FED21F1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignalsTests" */ = {
+		72FED21F1B2C97C400DCAB7E /* Build configuration list for PBXNativeTarget "UberSignals iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				72FED2201B2C97C400DCAB7E /* Debug */,
