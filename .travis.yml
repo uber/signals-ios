@@ -1,6 +1,6 @@
 language: objective-c
-xcode_project: UberSignals.xcodeproj
-xcode_scheme: UberSignals
+xcode_project: "UberSignals.xcodeproj"
+xcode_scheme: "UberSignals iOS"
 osx_image: xcode6.4
 xcode_sdk: iphonesimulator8.4
 notifications:
