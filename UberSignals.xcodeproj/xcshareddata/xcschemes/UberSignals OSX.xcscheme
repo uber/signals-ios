@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0710"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5EBEBDAE1C162DE000E8CA02"
-               BuildableName = "UberSignals OSX.framework"
+               BuildableName = "UberSignals.framework"
                BlueprintName = "UberSignals OSX"
                ReferencedContainer = "container:UberSignals.xcodeproj">
             </BuildableReference>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B643B4701C1EE50D00BE2A3B"
+               BuildableName = "UberSignals OSX Tests.xctest"
+               BlueprintName = "UberSignals OSX Tests"
+               ReferencedContainer = "container:UberSignals.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5EBEBDAE1C162DE000E8CA02"
+            BuildableName = "UberSignals.framework"
+            BlueprintName = "UberSignals OSX"
+            ReferencedContainer = "container:UberSignals.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -46,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EBEBDAE1C162DE000E8CA02"
-            BuildableName = "UberSignals OSX.framework"
+            BuildableName = "UberSignals.framework"
             BlueprintName = "UberSignals OSX"
             ReferencedContainer = "container:UberSignals.xcodeproj">
          </BuildableReference>
@@ -64,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5EBEBDAE1C162DE000E8CA02"
-            BuildableName = "UberSignals OSX.framework"
+            BuildableName = "UberSignals.framework"
             BlueprintName = "UberSignals OSX"
             ReferencedContainer = "container:UberSignals.xcodeproj">
          </BuildableReference>
