@@ -185,7 +185,7 @@ MutableDictionarySignal, fires a NSMutableDictionary
 ## Communication
 
 - If you **find a bug**, open an issue or submit a fix via a pull request.
-- If you **have a feature request**, open an issue or submit an implementation via a pull request
+- If you **have a feature request**, open an issue or submit an implementation via a pull request onto the **development** branch
 - If you **want to contribute**, submit a pull request.
 
 ## License
