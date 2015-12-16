@@ -9,10 +9,13 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/uber/signals-ios.git', :tag => s.version }
   s.requires_arc = true
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.7'
 
   s.source_files = "#{s.name}/**/*.{h,m}"
   s.private_header_files = "#{s.name}/**/*+Internal.h"
 
-  s.frameworks  = "Foundation"
+  s.ios.frameworks = 'Foundation'
+  s.osx.frameworks = 'Foundation'
+
 end
