@@ -5,14 +5,31 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
   matrix:
-    - DESTINATION="OS=9.1,name=iPhone 6s" SCHEME="UberSignals iOS" SDK=iphonesimulator9.1
-    - DESTINATION="platform=OS X,arch=x86_64" SCHEME="UberSignals OSX" SDK=macosx10.11
+    - DESTINATION="OS=9.1,name=iPhone 6s" SCHEME="UberSignals iOS" SDK=iphonesimulator9.1 RUN_TESTS="YES" BUILD="YES" POD_LINT="NO"
+    - DESTINATION="OS=9.0,name=iPhone 6 Plus" SCHEME="UberSignals iOS" SDK=iphonesimulator9.1 RUN_TESTS="YES" BUILD="YES" POD_LINT="NO" 
+    - DESTINATION="OS=8.4,name=iPhone 6" SCHEME="UberSignals iOS" SDK=iphonesimulator9.1 RUN_TESTS="YES" BUILD="NO" POD_LINT="NO" 
+    - DESTINATION="OS=8.3,name=iPhone 5S" SCHEME="UberSignals iOS" SDK=iphonesimulator9.1 RUN_TESTS="YES" BUILD="NO" POD_LINT="NO" 
+    - DESTINATION="OS=8.2,name=iPhone 5" SCHEME="UberSignals iOS" SDK=iphonesimulator9.1 RUN_TESTS="YES" BUILD="NO" POD_LINT="NO"
+    - DESTINATION="OS=8.1,name=iPhone 4S" SCHEME="UberSignals iOS" SDK=iphonesimulator9.1 RUN_TESTS="YES" BUILD="NO" POD_LINT="YES"
+    - DESTINATION="platform=OS X,arch=x86_64" SCHEME="UberSignals OSX" SDK=macosx10.11 RUN_TESTS="YES" BUILD="YES" POD_LINT="NO"
+before_install:
+    - gem install slather -N 
 script:
   - set -o pipefail
   - xcodebuild -version
   - xcodebuild -showsdks
   - instruments -s devices
-  - xcodebuild -project UberSignals.xcodeproj -scheme "$SCHEME" -destination "$DESTINATION" -sdk="SDK" -configuration Release ONLY_ACTIVE_ARCH=NO clean build | xcpretty -c;
-  - xcodebuild -project UberSignals.xcodeproj -scheme "$SCHEME" -destination "$DESTINATION" -sdk="SDK" -configuration Debug ONLY_ACTIVE_ARCH=NO clean build test | xcpretty -c;
+  - if [ $BUILD == "YES" ]; then
+      xcodebuild -project UberSignals.xcodeproj -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Debug ONLY_ACTIVE_ARCH=NO clean build | xcpretty -c;
+      xcodebuild -project UberSignals.xcodeproj -scheme "$SCHEME" -destination "$DESTINATION" -sdk "$SDK" -configuration Release ONLY_ACTIVE_ARCH=NO clean build | xcpretty -c;
+    fi
+  - if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild -project UberSignals.xcodeproj -scheme "$SCHEME" -destination "$DESTINATION" 
+       -configuration Debug ONLY_ACTIVE_ARCH=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES clean build test | xcpretty -c;
+    fi 
+  - if [ $POD_LINT == "YES" ]; then 
+      pod lib lint --quick;
+    fi
+after_success: slather
 notifications:
   email: false
