@@ -1,6 +1,7 @@
 # Signals
 
 [![Build Status](https://travis-ci.org/uber/signals-ios.svg?branch=master)](https://travis-ci.org/uber/signals-ios)
+[![Coverage Status](https://coveralls.io/repos/uber/signals-ios/badge.svg?branch=master&service=github)](https://coveralls.io/github/uber/signals-ios?branch=master)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/UberSignals.svg)](https://cocoapods.org/pods/UberSignals)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/cocoapods/l/Signals.svg?style=flat&color=gray)
