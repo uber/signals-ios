@@ -723,4 +723,20 @@
     XCTAssertEqualObjects([emptySignalWithHelper class], [UBSignal class], @"Object created with helper factory method should be a UBSignal");
 }
 
+- (void)testDebugDescription
+{
+    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
+    [signal addObserver:self callback:^(id self) {}];
+    XCTAssert([[signal debugDescription] containsString:@"<UBSignal: "], @"Should contain string");
+    XCTAssert([[signal debugDescription] containsString:@"NSArray"], @"Should contain string");
+    XCTAssert([[signal debugDescription] containsString:@"<UBSignalObserver: "], @"Should contain string");
+}
+
+- (void)testAddingInvalidObservers
+{
+    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
+    XCTAssertThrows([signal addObserver:nil callback:^(id self) {}], @"Should have asserted");
+    XCTAssertThrows([signal addObserver:self callback:nil], @"Should have asserted");
+}
+
 @end

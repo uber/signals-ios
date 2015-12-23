@@ -122,12 +122,6 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
     return self;
 }
 
-- (instancetype)init
-{
-    [NSException raise:@"Incorrect initializer" format:@"%@ is unavailable, use %@.", NSStringFromSelector(_cmd), NSStringFromSelector(@selector(initWithProtocol:))];
-    return nil;
-}
-
 #pragma mark - NSObject
 
 - (NSString *)debugDescription
@@ -149,10 +143,13 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
 
 - (UBSignalObserver *)addObserver:(NSObject *)observer callback:(UBSignalCallback)callback
 {
-    NSParameterAssert(observer != nil);
-    NSParameterAssert(callback != nil);
+    if (observer == nil) {
+        NSAssert(NO, @"Observer cannot be nil");
+        return nil;
+    }
     
-    if (observer == nil && callback == nil) {
+    if (callback == nil) {
+        NSAssert(NO, @"Callback cannot be nil");
         return nil;
     }
     
