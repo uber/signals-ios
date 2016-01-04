@@ -212,7 +212,7 @@
         firstSignalFired = YES;
     }];
     [emitter.onIntegerSignal addObserver:self callback:^(id self, NSNumber *integer) {
-        firstSignalFired = YES;
+        secondSignalFired = YES;
     }];
     
     emitter.onIntegerSignal.fireForSignalObserver(firstSignalObserver, @(10));
@@ -232,7 +232,7 @@
         firstSignalFired = YES;
     }];
     [emitter.onStringSignal addObserver:self callback:^(typeof(self) self, NSString *stringData, NSString *otherStringData) {
-        firstSignalFired = YES;
+        secondSignalFired = YES;
     }];
     
     emitter.onStringSignal.fireForSignalObserver(firstSignalObserver, @"First", @"Second");
@@ -252,7 +252,7 @@
         firstSignalFired = YES;
     }];
     [emitter.onTripleSignal addObserver:self callback:^(id self, NSString *string1, NSString *string2, NSNumber *number1) {
-        firstSignalFired = YES;
+        secondSignalFired = YES;
     }];
     
     emitter.onTripleSignal.fireForSignalObserver(firstSignalObserver, @"string1", @"string2", @(1));
@@ -272,7 +272,7 @@
         firstSignalFired = YES;
     }];
     [emitter.onQuardrupleSignal addObserver:self callback:^(id self, NSString *string1, NSString *string2, NSNumber *number1, NSNumber *number2) {
-        firstSignalFired = YES;
+        secondSignalFired = YES;
     }];
     
     emitter.onQuardrupleSignal.fireForSignalObserver(firstSignalObserver, @"string1", @"string2", @(1), @(2));
@@ -292,7 +292,7 @@
         firstSignalFired = YES;
     }];
     [emitter.onComplexSignal addObserver:self callback:^(id self, NSNumber *number1, NSNumber *number2, NSNumber *number3, NSNumber *number4, NSNumber *number5) {
-        firstSignalFired = YES;
+        secondSignalFired = YES;
     }];
     
     emitter.onComplexSignal.fireForSignalObserver(firstSignalObserver, @(1), @(2), @(3), @(4), @(5));
