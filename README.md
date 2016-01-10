@@ -7,14 +7,15 @@
 ![License](https://img.shields.io/cocoapods/l/Signals.svg?style=flat&color=gray)
 ![Platform](https://img.shields.io/cocoapods/p/UberSignals.svg?style=flat)
 
-Signals is an eventing framework that enables you to implement the Observable pattern without using error prone and clumsy NSNotifications or delegates.
+Signals is an eventing library that enables you to implement the Observable pattern without using error prone and clumsy NSNotifications or delegates.
 
 
 ## Features
 
 - [x] Type-safety
 - [x] Attach-and-forget observation
-- [x] Specify operation queue to observe events on
+- [X] Configurable observation behaviour
+- [x] Separate callback queues
 - [x] Comprehensive Unit Test Coverage
 
 ## Installation
