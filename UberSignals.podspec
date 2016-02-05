@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'UberSignals'
-  s.version = '2.2.1'
+  s.version = '2.3.0'
   s.license = { :type => 'MIT' }
   s.summary = 'Signals is an eventing framework that enables you to implement the Observable pattern without using NSNotifications.'
   s.homepage = 'https://github.com/uber/signals-ios'
@@ -11,6 +11,8 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '7.0'
   s.osx.deployment_target = '10.7'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
 
   s.source_files = "#{s.name}/**/*.{h,m}"
   s.private_header_files = "#{s.name}/**/*+Internal.h"
