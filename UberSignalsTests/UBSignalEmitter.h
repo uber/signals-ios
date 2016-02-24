@@ -33,6 +33,8 @@ CreateSignalType(Tuple, NSString *stringData, NSString *otherStringData)
 CreateSignalType(Triple, NSString *string1, NSString *string2, NSNumber *number1)
 CreateSignalType(Quadruple, NSString *string1, NSString *string2, NSNumber *number1, NSNumber *number2)
 CreateSignalType(Complex, NSNumber *number1, NSNumber *number2, NSNumber *number3, NSNumber *number4, NSNumber *number5)
+CreateSignalInterface(UBSwiftSignal, NSString *stringData)
+CreateSignalInterface(UBSwiftDoubleSignal, NSString *stringData, NSNumber *numberData)
 
 @interface UBSignalEmitter : NSObject
 
@@ -42,5 +44,7 @@ CreateSignalType(Complex, NSNumber *number1, NSNumber *number2, NSNumber *number
 @property (nonatomic, readonly) UBSignal<TripleSignal> *onTripleSignal;
 @property (nonatomic, readonly) UBSignal<QuadrupleSignal> *onQuardrupleSignal;
 @property (nonatomic, readonly) UBSignal<ComplexSignal> *onComplexSignal;
+@property (nonatomic, readonly) UBSwiftSignal *onSwiftSignal;
+@property (nonatomic, readonly) UBSwiftDoubleSignal *onSwiftDoubleSignal;
 
 @end

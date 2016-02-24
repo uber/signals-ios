@@ -1,5 +1,5 @@
 //
-//  UBSignal+Internal.h
+//  UBBaseSignal.h
 //  UberSignals
 //
 //  Copyright (c) 2015 Uber Technologies, Inc.
@@ -22,15 +22,23 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "UBSignal.h"
-
 #import "UBSignalObserver.h"
 
 #import <Foundation/Foundation.h>
 
-@interface UBBaseSignal()
+typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
 
-- (void)removeSignalObserver:(UBSignalObserver *)signalObserver;
-- (BOOL)firePastDataForSignalObserver:(UBSignalObserver *)signalObserver;
+/**
+ Internal base class for signals. You should not instantiate this directly. Instead, use UBSignal or one of your created signal subclasses.
+ */
+@interface UBBaseSignal : NSObject
+
+@property (nonatomic, assign) NSUInteger maxObservers;
+@property (nonatomic, strong) UBSignalObserverChange observerAdded;
+@property (nonatomic, strong) UBSignalObserverChange observerRemoved;
+
+- (instancetype)initWithProtocol:(Protocol *)protocol;
+- (void)removeObserver:(NSObject *)observer;
+- (void)removeAllObservers;
 
 @end

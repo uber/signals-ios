@@ -24,6 +24,9 @@
 
 #import "UBSignalEmitter.h"
 
+CreateSignalImplementation(UBSwiftSignal, NSString *stringData)
+CreateSignalImplementation(UBSwiftDoubleSignal, NSString *stringData, NSNumber *numberDate)
+
 @implementation UBSignalEmitter
 
 -(instancetype)init
@@ -36,6 +39,8 @@
         _onTripleSignal = (UBSignal<TripleSignal> *)[[UBSignal alloc] initWithProtocol:@protocol(TripleSignal)];
         _onQuardrupleSignal = (UBSignal<QuadrupleSignal> *)[[UBSignal alloc] initWithProtocol:@protocol(QuadrupleSignal)];
         _onComplexSignal = (UBSignal<ComplexSignal> *)[[UBSignal alloc] initWithProtocol:@protocol(ComplexSignal)];
+        _onSwiftSignal = [[UBSwiftSignal alloc] init];
+        _onSwiftDoubleSignal = [[UBSwiftDoubleSignal alloc] init];
     }
     return self;
 }

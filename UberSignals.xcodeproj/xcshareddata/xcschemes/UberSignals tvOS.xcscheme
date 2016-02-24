@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7249931A1C41DFFE006653CB"
-               BuildableName = "UberSignals tvOS.framework"
+               BuildableName = "UberSignals.framework"
                BlueprintName = "UberSignals tvOS"
                ReferencedContainer = "container:UberSignals.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7249931A1C41DFFE006653CB"
-            BuildableName = "UberSignals tvOS.framework"
+            BuildableName = "UberSignals.framework"
             BlueprintName = "UberSignals tvOS"
             ReferencedContainer = "container:UberSignals.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7249931A1C41DFFE006653CB"
-            BuildableName = "UberSignals tvOS.framework"
+            BuildableName = "UberSignals.framework"
             BlueprintName = "UberSignals tvOS"
             ReferencedContainer = "container:UberSignals.xcodeproj">
          </BuildableReference>
@@ -84,7 +84,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7249931A1C41DFFE006653CB"
-            BuildableName = "UberSignals tvOS.framework"
+            BuildableName = "UberSignals.framework"
             BlueprintName = "UberSignals tvOS"
             ReferencedContainer = "container:UberSignals.xcodeproj">
          </BuildableReference>

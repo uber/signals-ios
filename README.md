@@ -150,6 +150,47 @@ Signals remember with what data they were last fired with and you can force an o
 }];
 ```
 
+### Swift support
+
+The protocol-based approach described above is the easiest way to define new Signal types. However, these are unfortunately not accessible from Swift code. In order for Swift to understand the type of your signals correctly, you have to create concrete sub-classes for each signal type. Signals provides two macros to do this: `CreateSignalInterface` to create the interface for your sub-class and `CreateSignalImplementation` to create the implementation. You then use the concrete sub-classes when you declare the signals for your class:
+
+```objective-c
+
+// Defines a new Signal interface, a sub-class of UBSignal with the given
+// name and parameters
+CreateSignalInterface(UBNetworkResultSignal, NSData *result, NSError *error)
+
+@interface UBNetworkRequest
+
+// We declare the signal with the concrete type
+@property (nonatomic, readonly) UBNetworkResultSignal *onNetworkResult;
+
+@end
+
+
+// In your .m-file you also create the implementation for the sub-class
+
+CreateSignalImplementation(UBNetworkResultSignal, NSData *result, NSError *error)
+
+@implementation UBNetworkRequest
+
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    // You initialize it without a protocol
+    _onNetworkResult = [[UBNetworkResultSignal alloc] init];
+   }
+   return self;
+}
+
+- (void)receivedNetworkResult(NSData *data, NSError *error) 
+{
+  // And use it as you normally would
+  _onNetworkResult.fire(myData, myError);
+}
+```
+
+
 
 ## Max observers
 
