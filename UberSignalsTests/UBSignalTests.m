@@ -486,7 +486,7 @@
     
     emitter.onStringSignal.fire(nil, nil);
     
-    [self waitForExpectationsWithTimeout:0.2 handler:nil];
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
 }
 
 - (void)testFiringSignalOnSameOperationQueue
@@ -506,7 +506,7 @@
         emitter.onStringSignal.fire(nil, nil);
     }];
     
-    [self waitForExpectationsWithTimeout:0.2 handler:nil];
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
 }
 
 - (void)testNilObserverCallback
