@@ -258,7 +258,6 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
 
     [self _purgeDeallocedListeners];
 
-
     id arg1, arg2, arg3, arg4, arg5;
     switch (arguments.count) {
         case 5:

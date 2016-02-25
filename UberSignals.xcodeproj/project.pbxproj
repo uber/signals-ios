@@ -15,6 +15,9 @@
 		5EBEBDBC1C162E6600E8CA02 /* UBSignalObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2281B2C97D800DCAB7E /* UBSignalObserver.m */; };
 		5EBEBDBD1C162E6600E8CA02 /* UBSignalObserver+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2291B2C97D800DCAB7E /* UBSignalObserver+Internal.h */; };
 		5EBEBDBE1C162E6600E8CA02 /* UberSignals.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED20B1B2C97C400DCAB7E /* UberSignals.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7219981D1C7E92C000551591 /* UBBaseSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B48DF31C7E2A0200296268 /* UBBaseSignal.m */; };
+		7219981E1C7E92C100551591 /* UBBaseSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B48DF31C7E2A0200296268 /* UBBaseSignal.m */; };
+		7219981F1C7E92C100551591 /* UBBaseSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B48DF31C7E2A0200296268 /* UBBaseSignal.m */; };
 		724993251C41DFFE006653CB /* UberSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7249931B1C41DFFE006653CB /* UberSignals.framework */; };
 		7249933F1C41E1B8006653CB /* UBSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2231B2C97D800DCAB7E /* UBSignal.h */; };
 		724993401C41E1B8006653CB /* UBSignal+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2251B2C97D800DCAB7E /* UBSignal+Internal.h */; };
@@ -33,7 +36,6 @@
 		7249934D1C41E1E0006653CB /* UBSignalEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2351B2C97EB00DCAB7E /* UBSignalEmitter.m */; };
 		7249934E1C41E1E0006653CB /* UBSignalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2321B2C97E500DCAB7E /* UBSignalTests.m */; };
 		728AB04F1C7BA51600D13324 /* SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AB04E1C7BA51600D13324 /* SwiftTests.swift */; };
-		728AB0501C7BA51600D13324 /* SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AB04E1C7BA51600D13324 /* SwiftTests.swift */; };
 		728AB0511C7BA51600D13324 /* SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728AB04E1C7BA51600D13324 /* SwiftTests.swift */; };
 		72B48DF41C7E2A0200296268 /* UBBaseSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72B48DF21C7E2A0200296268 /* UBBaseSignal.h */; };
 		72B48DF51C7E2A0200296268 /* UBBaseSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 72B48DF31C7E2A0200296268 /* UBBaseSignal.m */; };
@@ -534,6 +536,7 @@
 			files = (
 				5EBEBDBC1C162E6600E8CA02 /* UBSignalObserver.m in Sources */,
 				5EBEBDB81C162E6600E8CA02 /* UBSignal.m in Sources */,
+				7219981D1C7E92C000551591 /* UBBaseSignal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +546,7 @@
 			files = (
 				7249934C1C41E1CE006653CB /* UBSignal.m in Sources */,
 				724993491C41E1C9006653CB /* UBSignalObserver.m in Sources */,
+				7219981E1C7E92C100551591 /* UBBaseSignal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +566,7 @@
 			files = (
 				7249934B1C41E1CE006653CB /* UBSignal.m in Sources */,
 				7249934A1C41E1C9006653CB /* UBSignalObserver.m in Sources */,
+				7219981F1C7E92C100551591 /* UBBaseSignal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +594,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				728AB0501C7BA51600D13324 /* SwiftTests.swift in Sources */,
 				B643B4741C1EE50D00BE2A3B /* UBSignalTests.m in Sources */,
 				B643B4751C1EE50D00BE2A3B /* UBSignalEmitter.m in Sources */,
 			);
