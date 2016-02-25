@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "724993361C41E021006653CB"
-               BuildableName = "UberSignals watchOS.framework"
+               BuildableName = "UberSignals.framework"
                BlueprintName = "UberSignals watchOS"
                ReferencedContainer = "container:UberSignals.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "724993361C41E021006653CB"
-            BuildableName = "UberSignals watchOS.framework"
+            BuildableName = "UberSignals.framework"
             BlueprintName = "UberSignals watchOS"
             ReferencedContainer = "container:UberSignals.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "724993361C41E021006653CB"
-            BuildableName = "UberSignals watchOS.framework"
+            BuildableName = "UberSignals.framework"
             BlueprintName = "UberSignals watchOS"
             ReferencedContainer = "container:UberSignals.xcodeproj">
          </BuildableReference>

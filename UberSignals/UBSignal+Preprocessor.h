@@ -47,16 +47,48 @@
 
 #endif
 
-#define CreateSignalType_(signatureParameterCount, name, signature...)\
+#define CreateSignalType_(signatureParameterCount, name, signature...) \
     CreateSignalType__(signatureParameterCount, name, signature)
 
-#define CreateSignalType__(signatureParameterCount, name, signature...)\
+#define CreateSignalType__(signatureParameterCount, name, signature...) \
     @protocol name ## Signal <UBSignalArgumentCount ## signatureParameterCount>\
-    - (UBSignalObserver *)addObserver:(NSObject *)observer callback:(void (^)(id self, signature))callback;\
-    - (void (^)(signature))fire;\
-    - (void (^)(UBSignalObserver *signalObserver, signature))fireForSignalObserver;\
+    - (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self, signature))callback; \
+    - (void (^)(signature))fire; \
+    - (void (^)(UBSignalObserver *signalObserver, signature))fireForSignalObserver; \
     @end
 
+#define CreateSignalInterface_(signatureParameterCount, name, signature...) \
+CreateSignalInterface__(signatureParameterCount, name, signature)
+
+#define CreateSignalInterface__(signatureParameterCount, name, signature...) \
+    @interface name : UBBaseSignal <UBSignalArgumentCount ## signatureParameterCount> {} \
+    - (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self, signature))callback; \
+    - (void (^)(signature))fire;\
+    - (void (^)(UBSignalObserver *signalObserver, signature))fireForSignalObserver; \
+    - (instancetype)initWithProtocol:(Protocol *)protocol NS_UNAVAILABLE; \
+    @end
+
+#define NO_WARN_FOR_INCOMPLETE_IMPLEMENTATION_BEGIN \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Wincomplete-implementation\"")
+
+#define NO_WARN_FOR_INCOMPLETE_IMPLEMENTATION_END \
+_Pragma("clang diagnostic pop") \
+
+#define CreateSignalImplementation_(signatureParameterCount, name, signature...)\
+CreateSignalImplementation__(signatureParameterCount, name, signature)
+
+#define CreateSignalImplementation__(signatureParameterCount, name, signature...)\
+NO_WARN_FOR_INCOMPLETE_IMPLEMENTATION_BEGIN \
+@implementation name \
+- (instancetype)init { \
+    self = [super initWithProtocol:@protocol(UBSignalArgumentCount ## signatureParameterCount)]; \
+    return self; \
+} \
+@end \
+NO_WARN_FOR_INCOMPLETE_IMPLEMENTATION_END
+
+@protocol UBSignalArgumentCount0 @end
 @protocol UBSignalArgumentCount1 @end
 @protocol UBSignalArgumentCount2 @end
 @protocol UBSignalArgumentCount3 @end

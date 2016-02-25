@@ -23,6 +23,7 @@
 //  THE SOFTWARE.
 
 
+#import "UBBaseSignal.h"
 #import "UBSignal+Preprocessor.h"
 #import "UBSignalObserver.h"
 
@@ -31,37 +32,30 @@
 /**
  Creates a new Signal type.
  
- @param name The name of the signal type
+ @param name The name of the signal type. "Signal" will be appended to the name and used as the name for the protocol that defines the signal type.
  @param va_args The types and names of the parameters fired by the signal. NOTE! Signal parameters all have to be objects, no primitive types allowed. If you provide primitive types the compiler won't warn you, but your firing the signal will crash the application.
  */
 #define CreateSignalType(name, signature...)\
     CreateSignalType_(PP_NARG(signature),name,signature)
 
 /**
- A special type of signal that doesn't have any parameters.
+ Creates the interface for a typed Signal subclass. This alternative way of creating typed signals is compatible with Swift. This should be coupled with a call to CreateSignalImplementation in your .m-file.
+
+ @param className The class name of the new signal.
+ @param va_args The types and names of the parameters fired by the signal. NOTE! Signal parameters all have to be objects, no primitive types allowed. If you provide primitive types the compiler won't warn you, but your firing the signal will crash the application.
  */
-@protocol EmptySignal <NSObject>
+#define CreateSignalInterface(className, signature...)\
+CreateSignalInterface_(PP_NARG(signature),className,signature)
 
 /**
- Adds an observer to the Signal.
- 
- @param observer The observing object. The observer will be weakified and passed back to the callback as a convenience and safe-guard against retain cycles in the callback block. If the observer be deallocated, the observaiton will also be canceled.
- @param callback A block to call whenever the Signal fires.
- @return A UBSignalObserver that can be used to cancel the observation.
- */
-- (UBSignalObserver *)addObserver:(NSObject *)observer callback:(void (^)(id self))callback;
+ Creates the implementation for a typed Signal subclass. This alternative way of creating typed signals is compatible with Swift. This should be coupled with a call to CreateSignalInterface in your header-file.
 
-/**
- Returns a block that fires the signal when invoked.
+ @param className The class name of the new signal.
+ @param va_args The types and names of the parameters fired by the signal. NOTE! Signal parameters all have to be objects, no primitive types allowed. If you provide primitive types the compiler won't warn you, but your firing the signal will crash the application.
  */
-- (void (^)(void))fire;
+#define CreateSignalImplementation(className, signature...)\
+CreateSignalImplementation_(PP_NARG(signature),className,signature)
 
-/**
- Returns a block that fires the signal for a specific observer when invoked.
- */
-- (void (^)(UBSignalObserver *signalObserver))fireForSignalObserver;
-
-@end
 
 /** An Signal type that fires an Integer as a NSNumber */
 CreateSignalType(Integer, NSNumber *number);
@@ -103,10 +97,7 @@ CreateSignalType(MutableDictionary, NSMutableDictionary *mutableDictionary);
  
  Signals will also detect deallocations of its observers, so it's not necessary to remove observers from Signals due to lifecycle changes.
  */
-
-typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
-
-@interface UBSignal : NSObject
+@protocol UBSignaling <NSObject>
 
 @property (nonatomic, assign) NSUInteger maxObservers;
 
@@ -121,18 +112,6 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
 @property (nonatomic, strong) UBSignalObserverChange observerRemoved;
 
 /**
- Helper factory method, constructs a Signal instance with the EmptySignal protocol.
- */
-+ (UBSignal<EmptySignal> *)emptySignal;
-
-- (instancetype)init NS_UNAVAILABLE;
-
-/**
- Initializes a Signal with a given protocol. An empty signal should call this initializer with the EmptySignal protocol.
- */
-- (instancetype)initWithProtocol:(Protocol *)protocol NS_DESIGNATED_INITIALIZER;
-
-/**
  Removes an observer from the Signal. If the observer has registered multiple callbacks with the Signal, all of them are removed.
  
  @param observer The observer to remove from the Signal.
@@ -143,5 +122,48 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
  Removes all observers from a Signal.
 */
 - (void)removeAllObservers;
+
+@end
+
+/**
+ A special type of signal that doesn't have any parameters.
+ */
+@protocol EmptySignal <UBSignalArgumentCount0>
+
+/**
+ Adds an observer to the Signal.
+
+ @param observer The observing object. The observer will be weakified and passed back to the callback as a convenience and safe-guard against retain cycles in the callback block. If the observer be deallocated, the observaiton will also be canceled.
+ @param callback A block to call whenever the Signal fires.
+ @return A UBSignalObserver that can be used to cancel the observation.
+ */
+- (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self))callback;
+
+/**
+ Returns a block that fires the signal when invoked.
+ */
+- (void (^)(void))fire;
+
+/**
+ Returns a block that fires the signal for a specific observer when invoked.
+ */
+- (void (^)(UBSignalObserver *signalObserver))fireForSignalObserver;
+
+@end
+
+
+@interface UBSignal : UBBaseSignal <UBSignaling>
+
+/**
+ Helper factory method, constructs a Signal instance with the EmptySignal protocol.
+ */
++ (UBSignal<EmptySignal> *)emptySignal;
+
+/**
+ Initializes a Signal with a given protocol. An empty signal should call this initializer with the EmptySignal protocol.
+ */
+- (instancetype)initWithProtocol:(Protocol *)protocol NS_DESIGNATED_INITIALIZER;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end

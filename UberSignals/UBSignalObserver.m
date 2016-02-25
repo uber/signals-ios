@@ -28,7 +28,7 @@
 
 @interface UBSignalObserver ()
 
-@property (nonatomic, weak) UBSignal *signal;
+@property (nonatomic, weak) UBBaseSignal *signal;
 
 @end
 
@@ -36,7 +36,7 @@
 
 #pragma mark - Initializers
 
-- (instancetype)initWithSignal:(UBSignal *)signal observer:(id)observer callback:(UBSignalCallback)callback
+- (instancetype)initWithSignal:(UBBaseSignal *)signal observer:(id)observer callback:(UBSignalCallback)callback
 {
     self = [super self];
     if (self) {

@@ -1,5 +1,5 @@
 //
-//  UBSignal+Internal.h
+//  SwiftTests.swift
 //  UberSignals
 //
 //  Copyright (c) 2015 Uber Technologies, Inc.
@@ -22,15 +22,27 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "UBSignal.h"
+import XCTest
 
-#import "UBSignalObserver.h"
+class SwiftTests: XCTestCase {
 
-#import <Foundation/Foundation.h>
+    func testObservation() {
+        var observed = 0
+        let observer = UBSignalEmitter()
 
-@interface UBBaseSignal()
+        observer.onSwiftSignal.addObserver(self) { (listener, string) in
+            XCTAssertEqual(string, "1", "Should have received correct value")
+            observed += 1
+        }
 
-- (void)removeSignalObserver:(UBSignalObserver *)signalObserver;
-- (BOOL)firePastDataForSignalObserver:(UBSignalObserver *)signalObserver;
+        observer.onSwiftDoubleSignal.addObserver(self) { (listener, string, number) in
+            observed += 1
+            XCTAssertEqual(string, "1", "Should have received correct value")
+            XCTAssertEqual(number, 2, "Should have received correct value")
+        }
 
-@end
+        observer.onSwiftSignal.fire()("1")
+        observer.onSwiftDoubleSignal.fire()("1", NSNumber(integer: 2))
+        XCTAssertEqual(observed, 2, "Should have fired callback")
+    }
+}
