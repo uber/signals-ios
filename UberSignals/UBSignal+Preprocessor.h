@@ -22,6 +22,8 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
+NS_ASSUME_NONNULL_BEGIN
+
 #ifndef PP_NARG
 
 #define PP_NARG(...) \
@@ -94,3 +96,5 @@ NO_WARN_FOR_INCOMPLETE_IMPLEMENTATION_END
 @protocol UBSignalArgumentCount3 @end
 @protocol UBSignalArgumentCount4 @end
 @protocol UBSignalArgumentCount5 @end
+
+NS_ASSUME_NONNULL_END

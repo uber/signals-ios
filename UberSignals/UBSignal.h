@@ -29,6 +29,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  Creates a new Signal type.
  
@@ -84,8 +86,36 @@ CreateSignalType(Dictionary, NSDictionary *dictionary);
 /** An Signal type that fires a NSMutableDictionary */
 CreateSignalType(MutableDictionary, NSMutableDictionary *mutableDictionary);
 
+/** An Signal type that fires an Integer as a NSNumber */
+CreateSignalInterface(UBIntegerSignal, NSNumber *number);
+
+/** An Signal type that fires a Float as a NSNumber */
+CreateSignalInterface(UBFloatSignal, NSNumber *number);
+
+/** An Signal type that fires an Double as a NSNumber */
+CreateSignalInterface(UBDoubleSignal, NSNumber *number);
+
+/** An Signal type that fires an Boolean as a NSNumber */
+CreateSignalInterface(UBBooleanSignal, NSNumber *number);
+
+/** An Signal type that fires an NSString */
+CreateSignalInterface(UBStringSignal, NSString *string);
+
+/** An Signal type that fires an NSArray */
+CreateSignalInterface(UBArraySignal, NSArray *array);
+
+/** An Signal type that fires a NSMutableArray */
+CreateSignalInterface(UBMutableArraySignal, NSMutableArray *mutableArray);
+
+/** An Signal type that fires a NSDictionary */
+CreateSignalInterface(UBDictionarySignal, NSDictionary *dictionary);
+
+/** An Signal type that fires a NSMutableDictionary */
+CreateSignalInterface(UBMutableDictionarySignal, NSMutableDictionary *mutableDictionary);
+
+
 /**
- A Signal represents a type of event that Observable objects implement and fire and Observers listen to. 
+ A Signal represents a type of event that Observable objects implement and fire and Observers listen to.
  
  Each class that wants to implement the Observable pattern first register the types of events they fire using the CreateSignalType macro. This registers the type of data that is being fired by one of the Signals of the class to ensure type-safety. 
  
@@ -167,3 +197,17 @@ CreateSignalType(MutableDictionary, NSMutableDictionary *mutableDictionary);
 - (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+/**
+ A special type of signal that doesn't have any parameters.
+ */
+@interface UBEmptySignal : UBBaseSignal <UBSignalArgumentCount0>
+
+- (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self))callback; \
+- (void (^)())fire;
+- (void (^)(UBSignalObserver *signalObserver))fireForSignalObserver;
+- (instancetype)initWithProtocol:(Protocol *)protocol NS_UNAVAILABLE;
+
+@end
+
+NS_ASSUME_NONNULL_END

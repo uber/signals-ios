@@ -26,6 +26,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
 
 /**
@@ -42,3 +44,5 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
 - (void)removeAllObservers;
 
 @end
+
+NS_ASSUME_NONNULL_END
