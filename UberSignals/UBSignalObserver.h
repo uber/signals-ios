@@ -24,6 +24,8 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  A SignalObserver is returned whenever an observer is added to a UBSignal. Use it to cancel this specific observation or change the OperationQueue on which to dispatch the callback on.
  */
@@ -52,3 +54,5 @@
 - (void)cancel;
 
 @end
+
+NS_ASSUME_NONNULL_END
