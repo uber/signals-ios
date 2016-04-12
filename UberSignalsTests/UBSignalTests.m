@@ -625,13 +625,6 @@
     XCTAssertThrows([signal addObserver:self callback:^(id self) {}], @"Should have complained about max observers");
 }
 
-- (void)testObservingWithoutCallback
-{
-    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
-    XCTAssertThrows([signal addObserver:nil callback:^(id self) {}], @"Should have complained about nil observer");
-    XCTAssertThrows([signal addObserver:self callback:nil], @"Should have complained about nil callback");
-}
-
 - (void)testRemovingListenerWhileInObserverCallback {
     UBSignalEmitter *emitter = [[UBSignalEmitter alloc] init];
     
@@ -730,13 +723,6 @@
     XCTAssert([[signal debugDescription] containsString:@"<UBSignal: "], @"Should contain string");
     XCTAssert([[signal debugDescription] containsString:@"NSArray"], @"Should contain string");
     XCTAssert([[signal debugDescription] containsString:@"<UBSignalObserver: "], @"Should contain string");
-}
-
-- (void)testAddingInvalidObservers
-{
-    UBSignal<EmptySignal> *signal = (UBSignal<EmptySignal> *)[[UBSignal alloc] initWithProtocol:@protocol(EmptySignal)];
-    XCTAssertThrows([signal addObserver:nil callback:^(id self) {}], @"Should have asserted");
-    XCTAssertThrows([signal addObserver:self callback:nil], @"Should have asserted");
 }
 
 @end

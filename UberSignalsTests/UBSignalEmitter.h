@@ -39,6 +39,7 @@ CreateSignalInterface(UBSwiftDoubleSignal, NSString *stringData, NSNumber *numbe
 @interface UBSignalEmitter : NSObject
 
 @property (nonatomic, readonly) UBSignal<EmptySignal> *onEmptySignal;
+@property (nonatomic, readonly) UBEmptySignal *onEmptySignalSwift;
 @property (nonatomic, readonly) UBSignal<IntegerSignal> *onIntegerSignal;
 @property (nonatomic, readonly) UBSignal<TupleSignal> *onStringSignal;
 @property (nonatomic, readonly) UBSignal<TripleSignal> *onTripleSignal;

@@ -24,6 +24,8 @@
 
 #import "UBSignal+Internal.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^UBSignalCallback) (id listener, ...);
 typedef void (^UBSignalCallbackArgCount1) (id listener, id arg1);
 typedef void (^UBSignalCallbackArgCount2) (id listener, id arg1, id arg2);
@@ -44,3 +46,5 @@ typedef void (^UBSignalCallbackArgCount5) (id listener, id arg1, id arg2, id arg
 - (instancetype)initWithSignal:(UBBaseSignal *)signal observer:(id)observer callback:(UBSignalCallback)callback;
 
 @end
+
+NS_ASSUME_NONNULL_END

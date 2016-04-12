@@ -28,6 +28,15 @@
 
 #import "UBSignalObserver+Internal.h"
 
+CreateSignalImplementation(UBIntegerSignal, NSNumber *number);
+CreateSignalImplementation(UBFloatSignal, NSNumber *number);
+CreateSignalImplementation(UBDoubleSignal, NSNumber *number);
+CreateSignalImplementation(UBBooleanSignal, NSNumber *number);
+CreateSignalImplementation(UBStringSignal, NSString *string);
+CreateSignalImplementation(UBArraySignal, NSArray *array);
+CreateSignalImplementation(UBMutableArraySignal, NSMutableArray *mutableArray);
+CreateSignalImplementation(UBDictionarySignal, NSDictionary *dictionary);
+CreateSignalImplementation(UBMutableDictionarySignal, NSMutableDictionary *mutableDictionary);
 
 @implementation UBSignal : UBBaseSignal
 
@@ -40,5 +49,19 @@
     self = [super initWithProtocol:protocol];
     return self;
 }
+
+@end
+
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincomplete-implementation"
+
+@implementation UBEmptySignal
+
+- (instancetype)init {
+    self = [super initWithProtocol:@protocol(UBSignalArgumentCount0)];
+    return self;
+}
+#pragma clang diagnostic pop
 
 @end

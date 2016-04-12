@@ -26,6 +26,73 @@ import XCTest
 
 class SwiftTests: XCTestCase {
 
+    func testEmptyObservation() {
+        var observed = 0
+        let observer = UBSignalEmitter()
+
+        observer.onEmptySignalSwift.addObserver(self) { (listener) in
+            observed += 1
+        }
+
+        observer.onEmptySignalSwift.fire()()
+
+        XCTAssertEqual(observed, 1, "Should have fired callback")
+    }
+
+    func testPredefinedSignals() {
+        var observed = 0
+
+        let signal = UBDictionarySignal()
+        signal.addObserver(self) { (listener) in
+            observed += 1
+        }
+        signal.fire()(Dictionary())
+
+        let signal2 = UBArraySignal()
+        signal2.addObserver(self) { (listener, result) in
+            XCTAssertEqual(result, NSArray(objects: "result"), "Should have signaled correct result")
+            observed += 1
+        }
+        signal2.fire()(["result"])
+
+        let signal3 = UBFloatSignal()
+        signal3.addObserver(self) { (listener, result) in
+            XCTAssertEqual(result, 20.0, "Should have signaled correct result")
+            observed += 1
+        }
+        signal3.fire()(20.0)
+
+        let signal4 = UBDoubleSignal()
+        signal4.addObserver(self) { (listener, result) in
+            XCTAssertEqual(result, 20.0, "Should have signaled correct result")
+            observed += 1
+        }
+        signal4.fire()(20.0)
+
+        let signal5 = UBBooleanSignal()
+        signal5.addObserver(self) { (listener, result) in
+            XCTAssertEqual(result, true, "Should have signaled correct result")
+            observed += 1
+        }
+        signal5.fire()(true)
+
+        let signal6 = UBIntegerSignal()
+        signal6.addObserver(self) { (listener, result) in
+            XCTAssertEqual(result, 10, "Should have signaled correct result")
+            observed += 1
+        }
+        signal6.fire()(10)
+
+        let signal7 = UBMutableDictionarySignal()
+        signal7.addObserver(self) { (listener, result) in
+            XCTAssertEqual(result, NSMutableDictionary(), "Should have signaled correct result")
+            observed += 1
+        }
+        signal7.fire()(NSMutableDictionary())
+
+        XCTAssertEqual(observed, 7, "Should have fired callback")
+    }
+
     func testObservation() {
         var observed = 0
         let observer = UBSignalEmitter()
