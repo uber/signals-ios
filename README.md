@@ -37,7 +37,7 @@ github "uber/signals-ios" ~> 2.0
 
 ## Introduction
 
-NSNotifications are inherently error prone. If a listener doesn’t de-register itself from a notification when it’s deallocated, firing the notification will crash the application. If you refactor the data you send with a notification, the compiler won't warn you but your app might crash at runtime.
+NSNotifications are inherently error prone. Prior to iOS 9, if a listener doesn’t de-register itself from a notification when it’s deallocated, firing the notification will crash the application. If you refactor the data you send with a notification, the compiler won't warn you but your app might crash at runtime.
 
 NSNotifications are also unnecessarily broad. Anyone can listen in on them which couples separate components in your application implicitly together.
 
