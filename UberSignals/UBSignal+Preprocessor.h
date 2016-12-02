@@ -50,7 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 #endif
 
 #define CreateSignalType_(signatureParameterCount, name, signature...) \
-    CreateSignalType__(signatureParameterCount, name, signature)
+    CreateSignalType__(signatureParameterCount, name, signature) \
+    CreateSignalInitializer__(name)
 
 #define CreateSignalType__(signatureParameterCount, name, signature...) \
     @protocol name ## Signal <UBSignalArgumentCount ## signatureParameterCount>\
@@ -58,6 +59,16 @@ NS_ASSUME_NONNULL_BEGIN
     - (void (^)(signature))fire; \
     - (void (^)(UBSignalObserver *signalObserver, signature))fireForSignalObserver; \
     @end
+
+#define CreateSignalInitializer__(name) \
+    @interface UBBaseSignal (name) \
+    + (UBSignal <name ## Signal> *)new ## name ## Signal; \
+    @end \
+    @implementation UBSignal (name) \
+    + (id)new ## name ## Signal { \
+        return [[UBSignal alloc] initWithProtocol:@protocol(name ## Signal)]; \
+    } \
+    @end \
 
 #define CreateSignalInterface_(signatureParameterCount, name, signature...) \
 CreateSignalInterface__(signatureParameterCount, name, signature)

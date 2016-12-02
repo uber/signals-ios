@@ -1,8 +1,8 @@
 //
-//  UBSignal.m
+//  UBEmptySignal.m
 //  UberSignals
 //
-//  Copyright (c) 2015 Uber Technologies, Inc.
+//  Copyright (c) 2016 Uber Technologies, Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,27 +22,18 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "UBSignal.h"
 
-#import <objc/runtime.h>
+#import "UBEmptySignal.h"
 
-#import "UBSignalObserver+Internal.h"
+NO_WARN_FOR_INCOMPLETE_IMPLEMENTATION_BEGIN
 
-CreateSignalImplementation(UBIntegerSignal, NSNumber *number);
-CreateSignalImplementation(UBFloatSignal, NSNumber *number);
-CreateSignalImplementation(UBDoubleSignal, NSNumber *number);
-CreateSignalImplementation(UBBooleanSignal, NSNumber *number);
-CreateSignalImplementation(UBStringSignal, NSString *string);
-CreateSignalImplementation(UBArraySignal, NSArray *array);
-CreateSignalImplementation(UBMutableArraySignal, NSMutableArray *mutableArray);
-CreateSignalImplementation(UBDictionarySignal, NSDictionary *dictionary);
-CreateSignalImplementation(UBMutableDictionarySignal, NSMutableDictionary *mutableDictionary);
+@implementation UBEmptySignal
 
-@implementation UBSignal : UBBaseSignal
-
-- (instancetype)initWithProtocol:(Protocol *)protocol
+- (instancetype)init
 {
-    return [super initWithProtocol:protocol];
+    return [super initWithProtocol:@protocol(UBSignalArgumentCount0)];
 }
+
+NO_WARN_FOR_INCOMPLETE_IMPLEMENTATION_END
 
 @end

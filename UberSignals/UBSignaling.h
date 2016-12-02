@@ -1,8 +1,8 @@
 //
-//  UBSignal.m
+//  UBSignaling.h
 //  UberSignals
 //
-//  Copyright (c) 2015 Uber Technologies, Inc.
+//  Copyright (c) 2016 Uber Technologies, Inc.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,27 +22,37 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "UBSignal.h"
 
-#import <objc/runtime.h>
+#import <Foundation/Foundation.h>
 
-#import "UBSignalObserver+Internal.h"
+NS_ASSUME_NONNULL_BEGIN
 
-CreateSignalImplementation(UBIntegerSignal, NSNumber *number);
-CreateSignalImplementation(UBFloatSignal, NSNumber *number);
-CreateSignalImplementation(UBDoubleSignal, NSNumber *number);
-CreateSignalImplementation(UBBooleanSignal, NSNumber *number);
-CreateSignalImplementation(UBStringSignal, NSString *string);
-CreateSignalImplementation(UBArraySignal, NSArray *array);
-CreateSignalImplementation(UBMutableArraySignal, NSMutableArray *mutableArray);
-CreateSignalImplementation(UBDictionarySignal, NSDictionary *dictionary);
-CreateSignalImplementation(UBMutableDictionarySignal, NSMutableDictionary *mutableDictionary);
+@protocol UBSignaling <NSObject>
 
-@implementation UBSignal : UBBaseSignal
+@property (nonatomic, assign) NSUInteger maxObservers;
 
-- (instancetype)initWithProtocol:(Protocol *)protocol
-{
-    return [super initWithProtocol:protocol];
-}
+/**
+ Notifies when an observer was added to a Signal.
+ */
+@property (nonatomic, strong) UBSignalObserverChange observerAdded;
+
+/**
+ Notifies when an observer was removed from a Signal.
+ */
+@property (nonatomic, strong) UBSignalObserverChange observerRemoved;
+
+/**
+ Removes an observer from the Signal. If the observer has registered multiple callbacks with the Signal, all of them are removed.
+ 
+ @param observer The observer to remove from the Signal.
+ */
+- (void)removeObserver:(NSObject *)observer;
+
+/**
+ Removes all observers from a Signal.
+ */
+- (void)removeAllObservers;
 
 @end
+
+NS_ASSUME_NONNULL_END
