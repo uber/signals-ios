@@ -50,6 +50,23 @@
 		72FED2311B2C97D800DCAB7E /* UBSignalObserver+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 72FED2291B2C97D800DCAB7E /* UBSignalObserver+Internal.h */; };
 		72FED2331B2C97E500DCAB7E /* UBSignalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2321B2C97E500DCAB7E /* UBSignalTests.m */; };
 		72FED2361B2C97EB00DCAB7E /* UBSignalEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2351B2C97EB00DCAB7E /* UBSignalEmitter.m */; };
+		775AAFB01DF2003600EF6CB6 /* UBSignaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFAF1DF1FFDA00EF6CB6 /* UBSignaling.h */; };
+		775AAFB11DF2003C00EF6CB6 /* UBSignaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFAF1DF1FFDA00EF6CB6 /* UBSignaling.h */; };
+		775AAFB21DF2004200EF6CB6 /* UBSignaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFAF1DF1FFDA00EF6CB6 /* UBSignaling.h */; };
+		775AAFB31DF2004700EF6CB6 /* UBSignaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFAF1DF1FFDA00EF6CB6 /* UBSignaling.h */; };
+		775AAFB61DF2009900EF6CB6 /* UBEmptySignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFB41DF2009900EF6CB6 /* UBEmptySignal.h */; };
+		775AAFB71DF2009900EF6CB6 /* UBEmptySignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AAFB51DF2009900EF6CB6 /* UBEmptySignal.m */; };
+		775AAFB81DF2010A00EF6CB6 /* UBEmptySignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFB41DF2009900EF6CB6 /* UBEmptySignal.h */; };
+		775AAFB91DF2010F00EF6CB6 /* UBEmptySignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFB41DF2009900EF6CB6 /* UBEmptySignal.h */; };
+		775AAFBA1DF2011300EF6CB6 /* UBEmptySignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFB41DF2009900EF6CB6 /* UBEmptySignal.h */; };
+		775AAFBD1DF202B600EF6CB6 /* UBSignal+Factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFBB1DF202B600EF6CB6 /* UBSignal+Factory.h */; };
+		775AAFBE1DF202B600EF6CB6 /* UBSignal+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AAFBC1DF202B600EF6CB6 /* UBSignal+Factory.m */; };
+		775AAFBF1DF2031E00EF6CB6 /* UBSignal+Factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFBB1DF202B600EF6CB6 /* UBSignal+Factory.h */; };
+		775AAFC01DF2032C00EF6CB6 /* UBSignal+Factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFBB1DF202B600EF6CB6 /* UBSignal+Factory.h */; };
+		775AAFC11DF2033100EF6CB6 /* UBSignal+Factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 775AAFBB1DF202B600EF6CB6 /* UBSignal+Factory.h */; };
+		775AAFC21DF203F900EF6CB6 /* UBSignal+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AAFBC1DF202B600EF6CB6 /* UBSignal+Factory.m */; };
+		775AAFC31DF2040100EF6CB6 /* UBSignal+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AAFBC1DF202B600EF6CB6 /* UBSignal+Factory.m */; };
+		775AAFC41DF2040600EF6CB6 /* UBSignal+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 775AAFBC1DF202B600EF6CB6 /* UBSignal+Factory.m */; };
 		B643B4741C1EE50D00BE2A3B /* UBSignalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2321B2C97E500DCAB7E /* UBSignalTests.m */; };
 		B643B4751C1EE50D00BE2A3B /* UBSignalEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FED2351B2C97EB00DCAB7E /* UBSignalEmitter.m */; };
 		B643B4771C1EE50D00BE2A3B /* UberSignals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FED2061B2C97C400DCAB7E /* UberSignals.framework */; };
@@ -104,6 +121,11 @@
 		72FED2321B2C97E500DCAB7E /* UBSignalTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBSignalTests.m; sourceTree = "<group>"; };
 		72FED2341B2C97EB00DCAB7E /* UBSignalEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBSignalEmitter.h; sourceTree = "<group>"; };
 		72FED2351B2C97EB00DCAB7E /* UBSignalEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBSignalEmitter.m; sourceTree = "<group>"; };
+		775AAFAF1DF1FFDA00EF6CB6 /* UBSignaling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UBSignaling.h; sourceTree = "<group>"; };
+		775AAFB41DF2009900EF6CB6 /* UBEmptySignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBEmptySignal.h; sourceTree = "<group>"; };
+		775AAFB51DF2009900EF6CB6 /* UBEmptySignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBEmptySignal.m; sourceTree = "<group>"; };
+		775AAFBB1DF202B600EF6CB6 /* UBSignal+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UBSignal+Factory.h"; sourceTree = "<group>"; };
+		775AAFBC1DF202B600EF6CB6 /* UBSignal+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UBSignal+Factory.m"; sourceTree = "<group>"; };
 		B643B47C1C1EE50D00BE2A3B /* UberSignals OSX Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UberSignals OSX Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -194,6 +216,7 @@
 				72B48DF21C7E2A0200296268 /* UBBaseSignal.h */,
 				72B48DF31C7E2A0200296268 /* UBBaseSignal.m */,
 				72FED20B1B2C97C400DCAB7E /* UberSignals.h */,
+				775AAFAF1DF1FFDA00EF6CB6 /* UBSignaling.h */,
 				72FED2231B2C97D800DCAB7E /* UBSignal.h */,
 				72FED2241B2C97D800DCAB7E /* UBSignal.m */,
 				72FED2251B2C97D800DCAB7E /* UBSignal+Internal.h */,
@@ -201,6 +224,10 @@
 				72FED2271B2C97D800DCAB7E /* UBSignalObserver.h */,
 				72FED2281B2C97D800DCAB7E /* UBSignalObserver.m */,
 				72FED2291B2C97D800DCAB7E /* UBSignalObserver+Internal.h */,
+				775AAFB41DF2009900EF6CB6 /* UBEmptySignal.h */,
+				775AAFB51DF2009900EF6CB6 /* UBEmptySignal.m */,
+				775AAFBB1DF202B600EF6CB6 /* UBSignal+Factory.h */,
+				775AAFBC1DF202B600EF6CB6 /* UBSignal+Factory.m */,
 			);
 			path = UberSignals;
 			sourceTree = "<group>";
@@ -250,6 +277,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EBEBDBE1C162E6600E8CA02 /* UberSignals.h in Headers */,
+				775AAFBF1DF2031E00EF6CB6 /* UBSignal+Factory.h in Headers */,
+				775AAFBA1DF2011300EF6CB6 /* UBEmptySignal.h in Headers */,
+				775AAFB11DF2003C00EF6CB6 /* UBSignaling.h in Headers */,
 				5EBEBDBD1C162E6600E8CA02 /* UBSignalObserver+Internal.h in Headers */,
 				5EBEBDBA1C162E6600E8CA02 /* UBSignal+Preprocessor.h in Headers */,
 				5EBEBDBB1C162E6600E8CA02 /* UBSignalObserver.h in Headers */,
@@ -263,6 +293,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				724993401C41E1B8006653CB /* UBSignal+Internal.h in Headers */,
+				775AAFC01DF2032C00EF6CB6 /* UBSignal+Factory.h in Headers */,
+				775AAFB91DF2010F00EF6CB6 /* UBEmptySignal.h in Headers */,
+				775AAFB21DF2004200EF6CB6 /* UBSignaling.h in Headers */,
 				7249933F1C41E1B8006653CB /* UBSignal.h in Headers */,
 				724993451C41E1BC006653CB /* UberSignals.h in Headers */,
 				724993471C41E1C3006653CB /* UBSignalObserver+Internal.h in Headers */,
@@ -275,6 +308,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				724993431C41E1B9006653CB /* UBSignal+Internal.h in Headers */,
+				775AAFC11DF2033100EF6CB6 /* UBSignal+Factory.h in Headers */,
+				775AAFB81DF2010A00EF6CB6 /* UBEmptySignal.h in Headers */,
+				775AAFB31DF2004700EF6CB6 /* UBSignaling.h in Headers */,
 				724993421C41E1B9006653CB /* UBSignal.h in Headers */,
 				724993461C41E1BC006653CB /* UberSignals.h in Headers */,
 				724993481C41E1C3006653CB /* UBSignalObserver+Internal.h in Headers */,
@@ -287,6 +323,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				72FED22B1B2C97D800DCAB7E /* UBSignal.h in Headers */,
+				775AAFB01DF2003600EF6CB6 /* UBSignaling.h in Headers */,
+				775AAFBD1DF202B600EF6CB6 /* UBSignal+Factory.h in Headers */,
+				775AAFB61DF2009900EF6CB6 /* UBEmptySignal.h in Headers */,
 				72FED20C1B2C97C400DCAB7E /* UberSignals.h in Headers */,
 				72FED22D1B2C97D800DCAB7E /* UBSignal+Internal.h in Headers */,
 				72FED22E1B2C97D800DCAB7E /* UBSignal+Preprocessor.h in Headers */,
@@ -554,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775AAFC41DF2040600EF6CB6 /* UBSignal+Factory.m in Sources */,
 				728AB0511C7BA51600D13324 /* SwiftTests.swift in Sources */,
 				7249934E1C41E1E0006653CB /* UBSignalTests.m in Sources */,
 				7249934D1C41E1E0006653CB /* UBSignalEmitter.m in Sources */,
@@ -576,6 +616,8 @@
 			files = (
 				72FED2301B2C97D800DCAB7E /* UBSignalObserver.m in Sources */,
 				72FED22C1B2C97D800DCAB7E /* UBSignal.m in Sources */,
+				775AAFBE1DF202B600EF6CB6 /* UBSignal+Factory.m in Sources */,
+				775AAFB71DF2009900EF6CB6 /* UBEmptySignal.m in Sources */,
 				72B48DF51C7E2A0200296268 /* UBBaseSignal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775AAFC21DF203F900EF6CB6 /* UBSignal+Factory.m in Sources */,
 				728AB04F1C7BA51600D13324 /* SwiftTests.swift in Sources */,
 				72FED2331B2C97E500DCAB7E /* UBSignalTests.m in Sources */,
 				72FED2361B2C97EB00DCAB7E /* UBSignalEmitter.m in Sources */,
@@ -594,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				775AAFC31DF2040100EF6CB6 /* UBSignal+Factory.m in Sources */,
 				B643B4741C1EE50D00BE2A3B /* UBSignalTests.m in Sources */,
 				B643B4751C1EE50D00BE2A3B /* UBSignalEmitter.m in Sources */,
 			);

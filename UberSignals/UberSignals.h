@@ -31,4 +31,5 @@ FOUNDATION_EXPORT double UberSignalsVersionNumber;
 FOUNDATION_EXPORT const unsigned char UberSignalsVersionString[];
 
 #import "UBSignal.h"
+#import "UBSignal+Factory.h"
 #import "UBSignalObserver.h"

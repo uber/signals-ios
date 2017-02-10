@@ -25,6 +25,7 @@
 #import <XCTest/XCTest.h>
 
 #import "UBSignalEmitter.h"
+#import "UBSignal+Factory.h"
 
 @interface UBSignalTests : XCTestCase
 @end
@@ -723,6 +724,48 @@
     XCTAssert([[signal debugDescription] containsString:@"<UBSignal: "], @"Should contain string");
     XCTAssert([[signal debugDescription] containsString:@"NSArray"], @"Should contain string");
     XCTAssert([[signal debugDescription] containsString:@"<UBSignalObserver: "], @"Should contain string");
+}
+
+- (void)testSignalFactoryMethod
+{
+    UBSignal<TupleSignal> *tupleSignal = [UBSignal newTupleSignal];
+
+    __block BOOL fired = NO;
+    __block id callbackSelf;
+    __block NSString *arg1;
+    __block NSString *arg2;
+    
+    [tupleSignal addObserver:self callback:^(typeof(self) self, NSString *stringData, NSString *otherStringData) {
+        fired = YES;
+        callbackSelf = self;
+        arg1 = stringData;
+        arg2 = otherStringData;
+    }];
+
+    tupleSignal.fire(@"hello", @"world");
+    
+    XCTAssert(fired, @"Signal fired");
+    XCTAssertEqual(callbackSelf, self, @"Callback should contain correct self argument");
+    XCTAssertEqualObjects(arg1, @"hello");
+    XCTAssertEqualObjects(arg2, @"world");
+}
+
+- (void)testNewEmptySignalFactoryMethod
+{
+    UBSignal<EmptySignal> *signal = [UBSignal newEmptySignal];
+    
+    __block BOOL fired;
+    __block id callbackSelf;
+    
+    [signal addObserver:self callback:^(typeof(self) self) {
+        fired = YES;
+        callbackSelf = self;
+    }];
+    
+    signal.fire();
+    
+    XCTAssert(fired, @"Signal fired");
+    XCTAssertEqual(callbackSelf, self, @"Callback should contain correct self argument");
 }
 
 @end
