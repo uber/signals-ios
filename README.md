@@ -144,10 +144,10 @@ The callback is by default called on the same NSOperationQueue than the signal f
 Signals remember with what data they were last fired with and you can force an observer to fire
 
 ```objective-c
-[networkRequest.onNetworkResult addObserver:self 
+[[networkRequest.onNetworkResult addObserver:self 
             callback:^(typeof(self) self, NSData *data, NSError *error) {
     ....
-}];
+}] firePreviousData];
 ```
 
 ### Swift support
