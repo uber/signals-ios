@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Creates a new Signal type.
- 
+
  @param name The name of the signal type. "Signal" will be appended to the name and used as the name for the protocol that defines the signal type.
  @param va_args The types and names of the parameters fired by the signal. NOTE! Signal parameters all have to be objects, no primitive types allowed. If you provide primitive types the compiler won't warn you, but your firing the signal will crash the application.
  */
@@ -116,15 +116,15 @@ CreateSignalInterface(UBMutableDictionarySignal, NSMutableDictionary *mutableDic
 
 /**
  A Signal represents a type of event that Observable objects implement and fire and Observers listen to.
- 
- Each class that wants to implement the Observable pattern first register the types of events they fire using the CreateSignalType macro. This registers the type of data that is being fired by one of the Signals of the class to ensure type-safety. 
- 
+
+ Each class that wants to implement the Observable pattern first register the types of events they fire using the CreateSignalType macro. This registers the type of data that is being fired by one of the Signals of the class to ensure type-safety.
+
  Observable classes then define properties with the naming convention on<EventName> (e.g. onNetworkData, onError, etc.) and use the appropriate type of signal type (e.g UBSignal<NetworkDataSignal>) to delcare its signals.
- 
+
  Observers register themselves to any Signals on instances they are interested in using the addObserver:callback: method of the Signal. Self is usually passed into the observer-parameter. The signal will weakify the observer pass it back to the the callback along with any parameters defined by the type of the Signal whenever the Signal fires. This way users don't have to weakify any references to self themselves and can rest assured that they're not creating retain cycles.
- 
+
  Observable classes fire the signal by retreiving the fire-block of the signal through the fire-property of the signal and calling it with the type of data registered with the Signal.
- 
+
  Signals will also detect deallocations of its observers, so it's not necessary to remove observers from Signals due to lifecycle changes.
  */
 @protocol UBSignaling <NSObject>
@@ -143,7 +143,7 @@ CreateSignalInterface(UBMutableDictionarySignal, NSMutableDictionary *mutableDic
 
 /**
  Removes an observer from the Signal. If the observer has registered multiple callbacks with the Signal, all of them are removed.
- 
+
  @param observer The observer to remove from the Signal.
  */
 - (void)removeObserver:(NSObject *)observer;
@@ -168,6 +168,16 @@ CreateSignalInterface(UBMutableDictionarySignal, NSMutableDictionary *mutableDic
  @return A UBSignalObserver that can be used to cancel the observation.
  */
 - (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self))callback;
+
+/**
+ Adds an observer to the Signal.
+
+ @param observer The observing object. The observer will be weakified and passed back to the callback as a convenience and safe-guard against retain cycles in the callback block. If the observer be deallocated, the observaiton will also be canceled.
+ @param queue The queue to fire the signal on.
+ @param callback A block to call whenever the Signal fires.
+ @return A UBSignalObserver that can be used to cancel the observation.
+ */
+- (UBSignalObserver *)addObserver:(id)observer queue:(nullable NSOperationQueue *)queue callback:(void (^)(id self))callback;
 
 /**
  Returns a block that fires the signal when invoked.
@@ -203,7 +213,8 @@ CreateSignalInterface(UBMutableDictionarySignal, NSMutableDictionary *mutableDic
  */
 @interface UBEmptySignal : UBBaseSignal <UBSignalArgumentCount0>
 
-- (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self))callback; \
+- (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self))callback;
+- (UBSignalObserver *)addObserver:(id)observer queue:(nullable NSOperationQueue *)queue callback:(void (^)(id self))callback;
 - (void (^)())fire;
 - (void (^)(UBSignalObserver *signalObserver))fireForSignalObserver;
 - (instancetype)initWithProtocol:(Protocol *)protocol NS_UNAVAILABLE;

@@ -43,7 +43,7 @@ typedef void (^UBSignalCallbackArgCount5) (id listener, id arg1, id arg2, id arg
 @property (nonatomic, weak, readonly) id observer;
 @property (nonatomic, readonly) UBSignalCallback callback;
 
-- (instancetype)initWithSignal:(UBBaseSignal *)signal observer:(id)observer callback:(UBSignalCallback)callback;
+- (instancetype)initWithSignal:(UBBaseSignal *)signal observer:(id)observer queue:(NSOperationQueue *)queue callback:(UBSignalCallback)callback;
 
 @end
 

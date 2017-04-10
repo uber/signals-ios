@@ -55,6 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define CreateSignalType__(signatureParameterCount, name, signature...) \
     @protocol name ## Signal <UBSignalArgumentCount ## signatureParameterCount>\
     - (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self, signature))callback; \
+    - (UBSignalObserver *)addObserver:(id)observer queue:(NSOperationQueue *)queue callback:(void (^)(id self, signature))callback; \
     - (void (^)(signature))fire; \
     - (void (^)(UBSignalObserver *signalObserver, signature))fireForSignalObserver; \
     @end
@@ -65,6 +66,7 @@ CreateSignalInterface__(signatureParameterCount, name, signature)
 #define CreateSignalInterface__(signatureParameterCount, name, signature...) \
     @interface name : UBBaseSignal <UBSignalArgumentCount ## signatureParameterCount> {} \
     - (UBSignalObserver *)addObserver:(id)observer callback:(void (^)(id self, signature))callback; \
+    - (UBSignalObserver *)addObserver:(id)observer queue:(NSOperationQueue *)queue callback:(void (^)(id self, signature))callback; \
     - (void (^)(signature))fire;\
     - (void (^)(UBSignalObserver *signalObserver, signature))fireForSignalObserver; \
     - (instancetype)initWithProtocol:(Protocol *)protocol NS_UNAVAILABLE; \

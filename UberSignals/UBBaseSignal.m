@@ -135,8 +135,12 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
 
 
 #pragma mark - Public interface
-
 - (UBSignalObserver *)addObserver:(id)observer callback:(UBSignalCallback)callback
+{
+    return [self addObserver:observer queue:nil callback:callback];
+}
+
+- (UBSignalObserver *)addObserver:(id)observer queue:(nullable NSOperationQueue *)queue callback:(UBSignalCallback)callback
 {
     if (observer == nil) {
         NSAssert(NO, @"Observer cannot be nil");
@@ -149,7 +153,7 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
     }
 
     [self _purgeDeallocedListeners];
-    UBSignalObserver *signalObserver = [[UBSignalObserver alloc] initWithSignal:self observer:observer callback:callback];
+    UBSignalObserver *signalObserver = [[UBSignalObserver alloc] initWithSignal:self observer:observer queue:queue callback:callback];
     @synchronized(_signalObservers) {
         [_signalObservers addObject:signalObserver];
         NSAssert(_signalObservers.count <= _maxObservers, @"Maximum observer count exceeded for this signal");

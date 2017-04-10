@@ -36,13 +36,14 @@
 
 #pragma mark - Initializers
 
-- (instancetype)initWithSignal:(UBBaseSignal *)signal observer:(id)observer callback:(UBSignalCallback)callback
+- (instancetype)initWithSignal:(UBBaseSignal *)signal observer:(id)observer queue:(NSOperationQueue *)queue callback:(UBSignalCallback)callback
 {
     self = [super self];
     if (self) {
         _signal = signal;
         _observer = observer;
         _callback = callback;
+        _operationQueue = queue;
     }
     return self;
 }
