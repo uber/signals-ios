@@ -109,7 +109,7 @@ class SwiftTests: XCTestCase {
         }
 
         observer.onSwiftSignal.fire()("1")
-        observer.onSwiftDoubleSignal.fire()("1", NSNumber(value: 2 as Int))
+        observer.onSwiftDoubleSignal.fire()("1", NSNumber(value: 2))
         XCTAssertEqual(observed, 2, "Should have fired callback")
     }
 }
