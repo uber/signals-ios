@@ -50,7 +50,7 @@ class SwiftTests: XCTestCase {
 
         let signal2 = UBArraySignal()
         signal2.addObserver(self) { (listener, result) in
-            XCTAssertEqual(result, NSArray(objects: "result"), "Should have signaled correct result")
+            XCTAssertEqual(result as NSArray, NSArray(objects: "result"), "Should have signaled correct result")
             observed += 1
         }
         signal2.fire()(["result"])
@@ -109,7 +109,7 @@ class SwiftTests: XCTestCase {
         }
 
         observer.onSwiftSignal.fire()("1")
-        observer.onSwiftDoubleSignal.fire()("1", NSNumber(integer: 2))
+        observer.onSwiftDoubleSignal.fire()("1", 2)
         XCTAssertEqual(observed, 2, "Should have fired callback")
     }
 }
