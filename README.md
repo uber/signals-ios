@@ -24,7 +24,7 @@ Signals is an eventing library that enables you to implement the Observable patt
 To integrate Signals into your project add the following to your `Podfile`:
 
 ```ruby
-pod 'UberSignals', '~> 2.0'
+pod 'UberSignals', '~> 2.5'
 ```
 
 #### Carthage
@@ -32,7 +32,7 @@ pod 'UberSignals', '~> 2.0'
 To integrate Signals into your project using Carthage add the following to your `Cartfile`:
 
 ```ruby
-github "uber/signals-ios" ~> 2.0
+github "uber/signals-ios" ~> 2.5
 ```
 
 ## Introduction
