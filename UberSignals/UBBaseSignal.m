@@ -133,6 +133,15 @@ typedef void (^UBSignalFire) (id arg1, id arg2, id arg3, id arg4, id arg5);
     NSAssert(_signalObservers.count <= _maxObservers, @"Maximum observer count exceeded for this signal");
 }
 
+- (NSUInteger)observerCount
+{
+    NSInteger observerCount;
+    @synchronized(_signalObservers)
+    {
+        observerCount = _signalObservers.count;
+    }
+    return observerCount;
+}
 
 #pragma mark - Public interface
 - (UBSignalObserver *)addObserver:(id)observer callback:(UBSignalCallback)callback

@@ -132,6 +132,11 @@ CreateSignalInterface(UBMutableDictionarySignal, NSMutableDictionary *mutableDic
 @property (nonatomic, assign) NSUInteger maxObservers;
 
 /**
+ The number of observers currently subscribed to the signal
+ */
+@property (atomic, readonly) NSUInteger observerCount;
+
+/**
  Notifies when an observer was added to a Signal.
  */
 @property (nonatomic, strong) UBSignalObserverChange observerAdded;
