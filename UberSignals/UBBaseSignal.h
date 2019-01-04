@@ -36,6 +36,7 @@ typedef void (^UBSignalObserverChange)(UBSignalObserver *signalObserver);
 @interface UBBaseSignal : NSObject
 
 @property (nonatomic, assign) NSUInteger maxObservers;
+@property (atomic, readonly) NSUInteger observerCount;
 @property (nonatomic, strong) UBSignalObserverChange observerAdded;
 @property (nonatomic, strong) UBSignalObserverChange observerRemoved;
 
